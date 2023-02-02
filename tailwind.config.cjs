@@ -3,8 +3,8 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     fontFamily: {
-      bebas: ["Bebas Neue", "sans-serif"],
-      poppins: ["Poppins", "sans-serif"],
+      bebas: ["Bebas Neue", "Bebas Neue Fallback", "sans-serif"],
+      poppins: ["Poppins", "Poppins Fallback", "sans-serif"],
     },
     extend: {
       colors: {

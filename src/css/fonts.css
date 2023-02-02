@@ -8,6 +8,17 @@
 }
 
 @font-face {
+  font-family: "Bebas Neue Fallback";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Arial");
+  ascent-override: 116.79%;
+  descent-override: 38.91%;
+  line-gap-override: 0%;
+  size-adjust: 77.05%;
+}
+
+@font-face {
   font-family: "Poppins";
   src: url("/fonts/subset-Poppins-Bold.woff2") format("woff2"),
     url("/fonts/subset-Poppins-Bold.woff") format("woff");
@@ -50,4 +61,15 @@
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins Fallback";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Arial");
+  ascent-override: 92.83%;
+  descent-override: 30.94%;
+  line-gap-override: 8.84%;
+  size-adjust: 113.11%;
 }
