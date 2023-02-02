@@ -12,13 +12,18 @@ export interface Props {
   textPos: XPosition;
 }
 
-const { link, text, bgColor } = Astro.props;
+const { link, textPos, bgColor } = Astro.props;
 ---
 
 <div class:list={[useGetBgColor(bgColor), useGetSpacing(bgColor)]}>
   <div class="container">
     <div class="default-grid">
-      <div class="col-span-full lg:col-span-9">
+      <div
+        class:list={[
+          "col-span-full lg:col-span-9 lg:row-start-1 self-center",
+          textPos == "right" ? "lg:col-start-10" : "col-start-1",
+        ]}
+      >
         <div class="prose prose-custom">
           <slot name="title" />
           <slot name="text" />
@@ -32,7 +37,12 @@ const { link, text, bgColor } = Astro.props;
           )
         }
       </div>
-      <div class="col-span-full lg:col-span-9">
+      <div
+        class:list={[
+          "col-span-full lg:col-span-8 lg:row-start-1",
+          textPos == "left" ? "lg:col-start-11" : "col-start-1",
+        ]}
+      >
         <slot name="image" />
       </div>
     </div>

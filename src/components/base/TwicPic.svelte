@@ -8,10 +8,8 @@
     // domain is mandatory
     domain: `https://angelokeirsebilck.twic.pics`,
   });
+  export let src: string;
+  export let ratio: string = "none";
 </script>
 
-<TwicImg
-  class="self-center w-full"
-  ratio="471:322"
-  src="https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro/svg/person-pc-illu.svg"
-/>
+<TwicImg {ratio} {src} />

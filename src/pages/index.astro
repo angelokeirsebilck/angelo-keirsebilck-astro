@@ -3,6 +3,7 @@ import Layout from "src/layouts/Layout.astro";
 import HomeBanner from "@components/blocks/home/HomeBanner.astro";
 
 import hi from "@assets/svg/hi.png";
+import person from "@assets/svg/person-pc-illu.svg";
 import TextMedia from "@components/blocks/TextMedia.astro";
 import TwicPic from "@components/base/TwicPic.svelte";
 
@@ -58,7 +59,52 @@ export const prerender = true;
         class="max-w-md flex justify-center items-center h-full mx-auto"
         slot="image"
       >
-        <TwicPic client:load />
+        <div class="w-full">
+          <img src={person} alt="" />
+          <!-- <TwicPic
+            ratio={"471:322"}
+            src="https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro/images/person-pc-illu.png"
+            client:load
+          /> -->
+        </div>
+      </div>
+    </TextMedia>
+    <TextMedia
+      bgColor={"white"}
+      textPos={"right"}
+      link={{
+        label: "Meer over de werkwijze",
+        uri: "/werkwijze",
+        style: {
+          intent: "green",
+          size: "medium",
+        },
+      }}
+    >
+      <h2 slot="title">
+        Persoonlijke aanpak en performantie: de sleutel tot succesvolle websites
+      </h2>
+      <div class="" slot="text">
+        <p>
+          Mijn focus ligt op het creëren van performante websites met een
+          persoonlijke aanpak. Ik geloof dat elk project uniek is en daarom stel
+          ik mijn klanten centraal bij het ontwerpen en ontwikkelen van hun
+          website.
+        </p>
+        <p>
+          Door gebruik te maken van de modernste technologieën, garandeer ik
+          snelle laadtijden en een gebruiksvriendelijke interface voor een
+          optimale gebruikerservaring.
+        </p>
+      </div>
+      <div class="" slot="image">
+        <div class="w-full h-full">
+          <TwicPic
+            ratio={"4:5"}
+            src="https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/payloadcms/test-01/images/nubelson-fernandes-UcYBL5V0xWQ-unsplash.jpg"
+            client:load
+          />
+        </div>
       </div>
     </TextMedia>
   </main>
