@@ -2,8 +2,8 @@
 import type { LinkType } from "@custom-types/ui";
 import type { BackgroundColor, XPosition } from "@custom-types/index";
 import { useGetBgColor } from "@utils/useGetBackgroundColor";
-
 import { useGetSpacing } from "@utils/useGetSpacing";
+
 import Link from "@components/ui/Link.astro";
 
 export interface Props {
@@ -15,9 +15,16 @@ export interface Props {
 const { link, textPos, bgColor } = Astro.props;
 ---
 
-<div class:list={[useGetBgColor(bgColor), useGetSpacing(bgColor)]}>
+<div
+  class:list={[
+    useGetBgColor(bgColor),
+    useGetSpacing(bgColor),
+    "overflow-hidden relative",
+  ]}
+>
+  <slot name="blobs" />
   <div class="container">
-    <div class="default-grid">
+    <div class="default-grid relative z-10">
       <div
         class:list={[
           "col-span-full lg:col-span-9 lg:row-start-1 self-center",

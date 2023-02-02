@@ -12,14 +12,20 @@ import blob1 from "@assets/svg/blob-pink-1.svg";
   alt="Lines"
 /> -->
 <div class="relative overflow-hidden">
-  <img src={face} class="absolute bottom-0 right-[15%]" alt="Lines" />
+  <img
+    src={face}
+    class="absolute bottom-10 hidden lg:block right-[20%]"
+    alt="Lines"
+  />
   <img
     src={blob1}
+    width="131"
+    height="131"
     class="absolute right-0 -bottom-[40px]"
     alt="Pointing arrow"
   />
   <div
-    class="container flex overflow-hidden flex-col items-center max-w-4xl justify-center text-center py-32 xmin-h-[calc(100vh_-_117px)]"
+    class="container flex overflow-hidden flex-col items-center max-w-4xl justify-center text-center py-16 lg:pb-48"
   >
     <slot name="title" />
 
@@ -28,7 +34,7 @@ import blob1 from "@assets/svg/blob-pink-1.svg";
     <div class="relative flex">
       <img
         src={arrowPointer}
-        class="absolute -left-36 top-12 transform -rotate-[45deg]"
+        class="absolute -left-32 md:-left-36 top-12 transform -rotate-[45deg]"
         alt="Pointing arrow"
       />
       <Link

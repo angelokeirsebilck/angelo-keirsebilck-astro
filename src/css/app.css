@@ -48,6 +48,10 @@
     @apply bg-[url('../assets/svg/line-marker-1.svg')] bg-no-repeat bg-bottom whitespace-nowrap bg-full;
   }
 
+  .underline-svg-2 {
+    @apply bg-[url('../assets/svg/line-marker-2.svg')] bg-no-repeat bg-bottom whitespace-nowrap bg-full;
+  }
+
   .prose-custom {
     @apply prose-headings:font-bebas prose-h2:text-5xl prose-headings:mr-headings prose-headings:text-black-default prose-p:text-black-default;
   }
