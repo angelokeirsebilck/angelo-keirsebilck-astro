@@ -1,0 +1,18 @@
+---
+import { useGetButtonStyle } from "@utils/useGetButtonStyle";
+import type { LinkProps } from "@utils/useGetButtonStyle";
+import type { LinkType } from "@custom-types/ui";
+
+type Props = {
+  link: LinkType;
+};
+
+const { link } = Astro.props;
+---
+
+<a
+  href={link.uri}
+  class:list={[useGetButtonStyle(link.style), link.extraClasses]}
+>
+  {link.label}
+</a>

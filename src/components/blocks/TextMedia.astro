@@ -1,0 +1,40 @@
+---
+import type { LinkType } from "@custom-types/ui";
+import type { BackgroundColor, XPosition } from "@custom-types/index";
+import { useGetBgColor } from "@utils/useGetBackgroundColor";
+
+import { useGetSpacing } from "@utils/useGetSpacing";
+import Link from "@components/ui/Link.astro";
+
+export interface Props {
+  link?: LinkType;
+  bgColor: BackgroundColor;
+  textPos: XPosition;
+}
+
+const { link, text, bgColor } = Astro.props;
+---
+
+<div class:list={[useGetBgColor(bgColor), useGetSpacing(bgColor)]}>
+  <div class="container">
+    <div class="default-grid">
+      <div class="col-span-full lg:col-span-9">
+        <div class="prose prose-custom">
+          <slot name="title" />
+          <slot name="text" />
+        </div>
+
+        {
+          link && (
+            <div class="mt-3 lg:mt-6 flex">
+              <Link link={link} />
+            </div>
+          )
+        }
+      </div>
+      <div class="col-span-full lg:col-span-9">
+        <slot name="image" />
+      </div>
+    </div>
+  </div>
+</div>

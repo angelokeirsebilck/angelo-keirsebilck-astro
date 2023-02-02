@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    @apply mt-[1.2em] mb-[0.7em] first:mt-0;
+  }
+}
+
+@layer components {
+  .container {
+    @apply w-full px-8 mx-auto max-w-container;
+  }
+
+  .default-grid {
+    @apply grid grid-cols-18 gap-x-8;
+  }
+
+  .btn {
+    @apply border-3 border-black-default font-bebas shadow-neo-4px rounded-md lg:hover:shadow-neo-4px-hover transition-all duration-150;
+  }
+
+  .btn-medium {
+    @apply px-8 py-3 text-2xl tracking-widest;
+  }
+
+  .btn-green {
+    @apply bg-green-default;
+  }
+
+  .btn-pink {
+    @apply bg-pink-default;
+  }
+
+  .underline-svg-1 {
+    @apply bg-[url('../assets/svg/line-marker-1.svg')] bg-no-repeat bg-bottom whitespace-nowrap bg-full;
+  }
+
+  .prose-custom {
+    @apply prose-headings:font-bebas prose-h2:text-5xl prose-headings:mr-headings prose-headings:text-black-default prose-p:text-black-default;
+  }
+}
+
+@layer utilities {
+  .mr-headings {
+    @apply mt-[1.2em] mb-[0.7em] first:mt-0;
+  }
+}

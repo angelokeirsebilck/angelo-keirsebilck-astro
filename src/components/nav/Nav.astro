@@ -1,0 +1,12 @@
+---
+import { getCollection, getEntryBySlug } from "astro:content";
+const allPages = await getCollection("pages");
+---
+
+<nav>
+  {
+    allPages.map((page) => {
+      return <a href={page.slug}>{page.data.title}</a>;
+    })
+  }
+</nav>
