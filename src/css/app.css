@@ -29,7 +29,7 @@
   }
 
   .btn {
-    @apply border-3 border-black-default font-bebas shadow-neo-4px rounded-md lg:hover:shadow-neo-4px-hover transition-all duration-150;
+    @apply border-3 border-black-default text-center font-bebas shadow-neo-4px rounded-md lg:hover:shadow-neo-4px-hover transition-all duration-150;
   }
 
   .btn-medium {
@@ -49,16 +49,20 @@
   }
 
   .underline-svg-2 {
-    @apply bg-[url('../assets/svg/line-marker-2.svg')] bg-no-repeat bg-bottom whitespace-nowrap bg-full;
+    @apply bg-[url('../assets/svg/line-marker-2.svg')] bg-no-repeat bg-bottom whitespace-nowrap bg-[length:100%_19px];
   }
 
   .prose-custom {
-    @apply prose-headings:font-bebas prose-h2:text-5xl prose-headings:mr-headings prose-headings:text-black-default prose-p:text-black-default;
+    @apply prose-headings:font-bebas prose-h3:lg:text-3xl prose-h3:text-2xl prose-h2:text-4xl prose-h2:lg:text-5xl prose-headings:mr-headings prose-headings:text-black-default prose-p:text-black-default;
   }
 }
 
 @layer utilities {
   .mr-headings {
     @apply mt-[1.2em] mb-[0.7em] first:mt-0;
+  }
+
+  .neo-brutal-border {
+    @apply after:absolute after:w-full after:z-10 after:h-full after:border-4 after:border-black-default after:rounded-inherit after:top-3 after:-right-3;
   }
 }

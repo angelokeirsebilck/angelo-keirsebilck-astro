@@ -8,6 +8,7 @@ import blobWhite1 from "@assets/svg/blob-white-1.svg";
 
 import TextMedia from "@components/blocks/TextMedia.astro";
 import TwicPic from "@components/base/TwicPic.svelte";
+import USP from "@components/blocks/USP.astro";
 
 export const prerender = true;
 ---
@@ -15,16 +16,22 @@ export const prerender = true;
 <Layout title="Angelo Keirsebilck">
   <main>
     <HomeBanner>
-      <h1 class="font-bebas text-5xl lg:text-7xl max-w-2xl mb-8" slot="title">
+      <h1
+        class="font-bebas text-5xl flex justify-center items-center flex-col text-center lg:text-7xl max-w-2xl mb-8"
+        slot="title"
+      >
         <img
           src={hi}
           width="83"
           height="81"
-          class="inline w-[55px] lg:w-auto"
+          class="inline transformo -translate-y-1.5"
           alt="Hi svg illustration"
-        />, Op zoek naar een <br /> website op <span class="underline-svg-1"
-          >jouw maat?</span
-        >
+        />
+        <div class="">
+          Op zoek naar een <br /> website op <span class="underline-svg-1"
+            >jouw maat?</span
+          >
+        </div>
       </h1>
       <div class="text-2xl mb-10" slot="intro">
         Met mijn persoonlijke aanpak en expertise komen we tot een resultaat die
@@ -54,8 +61,10 @@ export const prerender = true;
       </div>
       <h2 slot="title">
         Persoonlijke aanpak en performantie: de sleutel tot <span
-          class="underline-svg-2">succesvolle websites</span
-        >
+          class="underline-svg-2"
+          >succesvolle
+        </span>
+        <span class="underline-svg-2">websites</span>
       </h2>
       <div class="" slot="text">
         <p>
@@ -85,7 +94,7 @@ export const prerender = true;
         </div>
       </div>
     </TextMedia>
-    <TextMedia
+    <!-- <TextMedia
       bgColor={"white"}
       textPos={"right"}
       link={{
@@ -124,6 +133,7 @@ export const prerender = true;
           />
         </div>
       </div>
-    </TextMedia>
+    </TextMedia> -->
+    <USP bgColor={"white"} />
   </main>
 </Layout>

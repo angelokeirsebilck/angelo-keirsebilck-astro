@@ -27,7 +27,7 @@ const { link, textPos, bgColor } = Astro.props;
     <div class="default-grid relative z-10">
       <div
         class:list={[
-          "col-span-full lg:col-span-9 lg:row-start-1 self-center",
+          "col-span-full lg:col-span-9 lg:row-start-1 self-center js-parent",
           textPos == "right" ? "lg:col-start-10" : "col-start-1",
         ]}
       >
@@ -55,3 +55,9 @@ const { link, textPos, bgColor } = Astro.props;
     </div>
   </div>
 </div>
+
+<script>
+  import { useStaggerAnimationFromTo } from "@utils/useStaggerAnimationFromTo";
+  const parent = document.querySelector(".js-parent") as HTMLElement;
+  useStaggerAnimationFromTo(parent);
+</script>

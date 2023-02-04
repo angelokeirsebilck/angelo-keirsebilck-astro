@@ -1,0 +1,81 @@
+---
+import type { BackgroundColor } from "@custom-types/index";
+import rocket from "@assets/svg/rocket.svg";
+import stats from "@assets/svg/stats.svg";
+import tablet from "@assets/svg/tablet.svg";
+import rocketBlob from "@assets/svg/rocket-blob.svg";
+import tabletBlob from "@assets/svg/tablet-blob.svg";
+import statsBlob from "@assets/svg/stats-blob.svg";
+import Container from "@components/base/Container.astro";
+import USPItem from "./usp/USPItem.astro";
+
+export interface Props {
+  bgColor: BackgroundColor;
+}
+
+const { bgColor } = Astro.props;
+---
+
+<Container bgColor={bgColor}>
+  <div class="prose prose-custom text-center max-w-none">
+    <h2 class="">Enkel websites van hoge kwaliteit</h2>
+  </div>
+
+  <div class="default-grid pb-4 js-uspList">
+    <USPItem
+      bgColorAfter="after:bg-green-default"
+      title="Performant"
+      text="Ontwikkeling gericht op prestaties voor snelle laadtijden en een smooth gebruikerservaring"
+    >
+      <div class="relative" slot="img">
+        <img src={rocket} class="h-24" width="96" alt="Rocket illustration" />
+        <img
+          src={rocketBlob}
+          class="absolute -top-4 -right-8"
+          width="89"
+          height="90"
+          alt="Blob illustration"
+        />
+      </div>
+    </USPItem>
+    <USPItem
+      bgColorAfter="after:bg-blue-default"
+      title="Responsief"
+      text="Responsive websites die optimaal functioneren op alle apparaten voor een geweldige gebruikerservaring."
+    >
+      <div class="relative" slot="img">
+        <img src={tablet} class="h-24" width="96" alt="Rocket illustration" />
+        <img
+          src={tabletBlob}
+          class="absolute -top-4 -right-8"
+          width="89"
+          height="90"
+          alt="Blob illustration"
+        />
+      </div>
+    </USPItem>
+    <USPItem
+      bgColorAfter="after:bg-pink-default"
+      title="Seo"
+      text="Door de nadruk te leggen op zoekmachineoptimalisatie, zorg ik ervoor dat uw website hoger scoort in zoekresultaten."
+    >
+      <div class="relative" slot="img">
+        <img src={stats} class="h-24" width="96" alt="Rocket illustration" />
+        <img
+          src={statsBlob}
+          class="absolute -top-4 -right-8"
+          width="89"
+          height="90"
+          alt="Blob illustration"
+        />
+      </div>
+    </USPItem>
+  </div>
+</Container>
+
+<script>
+  import { useStaggerAnimationFromTo } from "@utils/useStaggerAnimationFromTo";
+  const uspList = document.querySelector(".js-uspList") as HTMLElement;
+  console.log(uspList);
+  useStaggerAnimationFromTo(uspList);
+</script>

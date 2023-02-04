@@ -1,0 +1,28 @@
+---
+export interface Props {
+  title: string;
+  text: string;
+  bgColorAfter: string;
+}
+
+const { title, text, bgColorAfter } = Astro.props;
+---
+
+<div
+  class:list={[
+    "col-span-full lg:col-span-6 rounded-20 relative neo-brutal-border ",
+    bgColorAfter,
+  ]}
+>
+  <div
+    class="flex h-full w-full flex-col p-10 bg-white relative z-20 border-black-default border-4 rounded-20 items-center max-w-none prose-custom prose"
+  >
+    <div class="not-prose">
+      <slot name="img" />
+    </div>
+    <h3 class="font-bebas mt-4">{title}</h3>
+    <p class="max-w-sm text-center">
+      {text}
+    </p>
+  </div>
+</div>

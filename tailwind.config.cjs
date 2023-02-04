@@ -67,6 +67,10 @@ module.exports = {
         "neo-4px": "5px 5px 0px #000000",
         "neo-4px-hover": "-3px -3px 0px #000000",
       },
+      borderRadius: {
+        20: "20px",
+        inherit: "inherit",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],

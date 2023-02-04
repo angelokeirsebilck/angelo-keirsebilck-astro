@@ -1,0 +1,24 @@
+---
+import type { BackgroundColor } from "@custom-types/index";
+import { useGetBgColor } from "@utils/useGetBackgroundColor";
+import { useGetSpacing } from "@utils/useGetSpacing";
+
+export interface Props {
+  bgColor: BackgroundColor;
+}
+
+const { bgColor } = Astro.props;
+---
+
+<div
+  class:list={[
+    useGetBgColor(bgColor),
+    useGetSpacing(bgColor),
+    "overflow-hidden relative",
+  ]}
+>
+  <slot name="blobs" />
+  <div class="container">
+    <slot />
+  </div>
+</div>
