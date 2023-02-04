@@ -5,6 +5,7 @@ import { useGetBgColor } from "@utils/useGetBackgroundColor";
 import { useGetSpacing } from "@utils/useGetSpacing";
 
 import Link from "@components/ui/Link.astro";
+import Container from "@components/base/Container.astro";
 
 export interface Props {
   link?: LinkType;
@@ -15,49 +16,35 @@ export interface Props {
 const { link, textPos, bgColor } = Astro.props;
 ---
 
-<div
-  class:list={[
-    useGetBgColor(bgColor),
-    useGetSpacing(bgColor),
-    "overflow-hidden relative",
-  ]}
->
+<Container bgColor={bgColor}>
   <slot name="blobs" />
-  <div class="container">
-    <div class="default-grid relative z-10">
-      <div
-        class:list={[
-          "col-span-full lg:col-span-9 lg:row-start-1 self-center js-parent",
-          textPos == "right" ? "lg:col-start-10" : "col-start-1",
-        ]}
-      >
-        <div class="prose prose-custom">
-          <slot name="title" />
-          <slot name="text" />
-        </div>
+  <div class="default-grid relative z-10 js-staggerFromTo">
+    <div
+      class:list={[
+        "col-span-full lg:col-span-9 lg:row-start-1 self-center js-staggerFromTo",
+        textPos == "right" ? "lg:col-start-10" : "col-start-1",
+      ]}
+    >
+      <div class="prose prose-custom">
+        <slot name="title" />
+        <slot name="text" />
+      </div>
 
-        {
-          link && (
-            <div class="mt-3 lg:mt-6 flex">
-              <Link link={link} />
-            </div>
-          )
-        }
-      </div>
-      <div
-        class:list={[
-          "col-span-full lg:col-span-8 lg:row-start-1",
-          textPos == "left" ? "lg:col-start-11" : "col-start-1",
-        ]}
-      >
-        <slot name="image" />
-      </div>
+      {
+        link && (
+          <div class="mt-3 lg:mt-6 flex">
+            <Link link={link} />
+          </div>
+        )
+      }
+    </div>
+    <div
+      class:list={[
+        "col-span-full lg:col-span-8 lg:row-start-1",
+        textPos == "left" ? "lg:col-start-11" : "col-start-1",
+      ]}
+    >
+      <slot name="image" />
     </div>
   </div>
-</div>
-
-<script>
-  import { useStaggerAnimationFromTo } from "@utils/useStaggerAnimationFromTo";
-  const parent = document.querySelector(".js-parent") as HTMLElement;
-  useStaggerAnimationFromTo(parent);
-</script>
+</Container>

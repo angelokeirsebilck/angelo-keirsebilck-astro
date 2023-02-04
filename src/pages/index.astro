@@ -9,6 +9,8 @@ import blobWhite1 from "@assets/svg/blob-white-1.svg";
 import TextMedia from "@components/blocks/TextMedia.astro";
 import TwicPic from "@components/base/TwicPic.svelte";
 import USP from "@components/blocks/USP.astro";
+import Container from "@components/base/Container.astro";
+import Testiomonials from "@components/blocks/Testiomonials.astro";
 
 export const prerender = true;
 ---
@@ -94,46 +96,8 @@ export const prerender = true;
         </div>
       </div>
     </TextMedia>
-    <!-- <TextMedia
-      bgColor={"white"}
-      textPos={"right"}
-      link={{
-        label: "Meer over de werkwijze",
-        uri: "/werkwijze",
-        style: {
-          intent: "green",
-          size: "medium",
-        },
-      }}
-    >
-      <h2 slot="title">
-        Persoonlijke aanpak en performantie: de sleutel tot <span
-          class="svg-underline-2">succesvolle websites</span
-        >
-      </h2>
-      <div class="" slot="text">
-        <p>
-          Mijn focus ligt op het creëren van performante websites met een
-          persoonlijke aanpak. Ik geloof dat elk project uniek is en daarom stel
-          ik mijn klanten centraal bij het ontwerpen en ontwikkelen van hun
-          website.
-        </p>
-        <p>
-          Door gebruik te maken van de modernste technologieën, garandeer ik
-          snelle laadtijden en een gebruiksvriendelijke interface voor een
-          optimale gebruikerservaring.
-        </p>
-      </div>
-      <div class="" slot="image">
-        <div class="w-full h-full">
-          <TwicPic
-            ratio={"4:5"}
-            src="https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/payloadcms/test-01/images/nubelson-fernandes-UcYBL5V0xWQ-unsplash.jpg"
-            client:load
-          />
-        </div>
-      </div>
-    </TextMedia> -->
+
     <USP bgColor={"white"} />
+    <Testiomonials bgColor={"green"} />
   </main>
 </Layout>

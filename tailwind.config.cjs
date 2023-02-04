@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  safelist: ["swiper-button-disabled", "swiper-button-lock"],
   theme: {
     fontFamily: {
       bebas: ["Bebas Neue", "Bebas Neue Fallback", "sans-serif"],
@@ -64,6 +65,8 @@ module.exports = {
         3: "3px",
       },
       boxShadow: {
+        "neo-2px": "2px 2px 0px #000000",
+        "neo-2px-hover": "-2px -2px 0px #000000",
         "neo-4px": "5px 5px 0px #000000",
         "neo-4px-hover": "-3px -3px 0px #000000",
       },

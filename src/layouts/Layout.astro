@@ -25,3 +25,13 @@ export const prerender = true;
     <slot />
   </body>
 </html>
+
+<script>
+  import { useStaggerAnimationFromTo } from "@utils/useStaggerAnimationFromTo";
+  const staggetFromToParents = document.querySelectorAll(
+    ".js-staggerFromTo"
+  ) as NodeList;
+  staggetFromToParents.forEach((parent) => {
+    useStaggerAnimationFromTo(parent as HTMLElement);
+  });
+</script>

@@ -21,7 +21,7 @@ const { bgColor } = Astro.props;
     <h2 class="">Enkel websites van hoge kwaliteit</h2>
   </div>
 
-  <div class="default-grid pb-4 js-uspList">
+  <div class="default-grid pb-8 js-staggerFromTo staggerFromTo">
     <USPItem
       bgColorAfter="after:bg-green-default"
       title="Performant"
@@ -72,10 +72,3 @@ const { bgColor } = Astro.props;
     </USPItem>
   </div>
 </Container>
-
-<script>
-  import { useStaggerAnimationFromTo } from "@utils/useStaggerAnimationFromTo";
-  const uspList = document.querySelector(".js-uspList") as HTMLElement;
-  console.log(uspList);
-  useStaggerAnimationFromTo(uspList);
-</script>

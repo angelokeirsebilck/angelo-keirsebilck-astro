@@ -10,12 +10,12 @@ const { title, text, bgColorAfter } = Astro.props;
 
 <div
   class:list={[
-    "col-span-full lg:col-span-6 rounded-20 relative neo-brutal-border ",
+    "col-span-full lg:col-span-6 rounded-20 relative neo-brutal-border after:w-[calc(100%_-_12px)]",
     bgColorAfter,
   ]}
 >
   <div
-    class="flex h-full w-full flex-col p-10 bg-white relative z-20 border-black-default border-4 rounded-20 items-center max-w-none prose-custom prose"
+    class="flex h-full w-[calc(100%_-_12px)] flex-col p-10 bg-white relative z-20 border-black-default border-4 rounded-20 items-center max-w-none prose-custom prose"
   >
     <div class="not-prose">
       <slot name="img" />

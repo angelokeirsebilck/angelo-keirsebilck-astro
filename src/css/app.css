@@ -55,6 +55,14 @@
   .prose-custom {
     @apply prose-headings:font-bebas prose-h3:lg:text-3xl prose-h3:text-2xl prose-h2:text-4xl prose-h2:lg:text-5xl prose-headings:mr-headings prose-headings:text-black-default prose-p:text-black-default;
   }
+
+  .swiper-button-disabled > div {
+    @apply opacity-30 pointer-events-none;
+  }
+
+  .swiper-button-lock {
+    @apply hidden;
+  }
 }
 
 @layer utilities {
@@ -63,6 +71,6 @@
   }
 
   .neo-brutal-border {
-    @apply after:absolute after:w-full after:z-10 after:h-full after:border-4 after:border-black-default after:rounded-inherit after:top-3 after:-right-3;
+    @apply after:absolute  after:w-[calc(100%_-_12px)] after:-z-10 after:h-full after:border-4 after:border-black-default after:rounded-inherit after:top-3 after:right-0;
   }
 }

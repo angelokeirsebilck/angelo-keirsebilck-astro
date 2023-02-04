@@ -1,0 +1,73 @@
+---
+import type { BackgroundColor } from "@custom-types/index";
+import Container from "@components/base/Container.astro";
+import TestimonialItem from "./testimonial/TestimonialItem.astro";
+import SwiperPrev from "@components/ui/swiper/SwiperPrev.astro";
+import SwiperNext from "@components/ui/swiper/SwiperNext.astro";
+
+export interface Props {
+  bgColor: BackgroundColor;
+}
+
+const { bgColor } = Astro.props;
+---
+
+<Container bgColor={bgColor}>
+  <div class="prose prose-custom text-center max-w-none">
+    <h2 class="">Getuigenissen van tevreden klanten</h2>
+  </div>
+
+  <div class="default-grid xpb-24 lg:pb-0">
+    <div class="col-span-full lg:col-start-4 lg:col-span-12 relative">
+      <div
+        class="absolute z-20 h-auto swiper-button-prev -bottom-24 left-1/2 -translate-x-[calc(50%_+_50px)] lg:bottom-[unset] lg:left-0 lg:top-1/2 lg:-translate-x-1/2 transform lg:-translate-y-1/2"
+      >
+        <SwiperPrev />
+      </div>
+      <div
+        class="absolute z-20 swiper-button-next -bottom-24 left-1/2 lg:left-[unset] lg:bottom-[unset] -translate-x-[calc(50%_-_50px)] lg:right-0 lg:top-1/2 transform lg:-translate-y-1/2 lg:translate-x-[25.5px]"
+      >
+        <SwiperNext />
+      </div>
+      <div
+        class="swiper-container overflow-hidden pb-4 pr-4 w-full js-testimonialSwiper"
+      >
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <TestimonialItem
+              author="Diego Keirsebilck"
+              company="Kerotec BV"
+              text="Ik ben zeer tevreden over de website die door Angelo voor mijn bedrijf is ontwikkeld. De communicatie was duidelijk en efficiënt, en Angelo  was zeer behulpzaam bij het realiseren van mijn wensen en doelstellingen."
+            />
+          </div>
+          <div class="swiper-slide">
+            <TestimonialItem
+              author="Diego Keirsebilck"
+              company="Kerotec BV"
+              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Container>
+
+<script>
+  import Swiper, { Navigation } from "swiper";
+  import "swiper/css";
+  import "swiper/css/pagination";
+
+  const swiper = new Swiper(".js-testimonialSwiper", {
+    modules: [Navigation],
+    slidesPerView: 1,
+    spaceBetween: 20,
+    grabCursor: true,
+    watchOverflow: true,
+    autoHeight: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
