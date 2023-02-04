@@ -7,9 +7,7 @@ import person from "@assets/svg/person-pc-illu.svg";
 import blobWhite1 from "@assets/svg/blob-white-1.svg";
 
 import TextMedia from "@components/blocks/TextMedia.astro";
-import TwicPic from "@components/base/TwicPic.svelte";
 import USP from "@components/blocks/USP.astro";
-import Container from "@components/base/Container.astro";
 import Testiomonials from "@components/blocks/Testiomonials.astro";
 
 export const prerender = true;
@@ -98,6 +96,23 @@ export const prerender = true;
     </TextMedia>
 
     <USP bgColor={"white"} />
-    <Testiomonials bgColor={"green"} />
+    <Testiomonials bgColor={"green"}>
+      <div slot="blobs">
+        <img
+          src={blobWhite1}
+          class="absolute -bottom-20 z-20 right-[-200px]"
+          width="378"
+          height="200"
+          alt="Random Blog"
+        />
+        <img
+          src={blobWhite1}
+          class="absolute top-0 z-20 left-[-170px] transform rotate-90"
+          width="378"
+          height="200"
+          alt="Random Blog"
+        />
+      </div>
+    </Testiomonials>
   </main>
 </Layout>

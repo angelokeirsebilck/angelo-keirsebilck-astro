@@ -13,7 +13,8 @@ const { bgColor } = Astro.props;
 ---
 
 <Container bgColor={bgColor}>
-  <div class="prose prose-custom text-center max-w-none">
+  <slot name="blobs" />
+  <div class="prose prose-custom text-center max-w-none relative z-20">
     <h2 class="">Getuigenissen van tevreden klanten</h2>
   </div>
 
