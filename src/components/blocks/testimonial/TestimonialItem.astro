@@ -9,11 +9,11 @@ const { company, text, author } = Astro.props;
 ---
 
 <div
-  class="bg-white p-5 lg:p-16 border-black-default flex items-center flex-col border-4 after:-right-3 after:w-full rounded-20 z-20 after:bg-white neo-brutal-border prose prose-custom max-w-none"
+  class="bg-white p-6 lg:p-10 border-black-default flex items-center flex-col border-4 after:-right-3 after:w-full rounded-20 z-20 after:bg-white neo-brutal-border prose prose-custom max-w-none"
 >
   <div class="max-w-2xl mx-auto flex flex-col items-center">
-    <p class="text-center">{text}</p>
+    <p class="text-center mt-0">{text}</p>
     <h3 class="mt-0 mb-0">{company}</h3>
-    <span class="text-xl font-bebas text-black-default">{author}</span>
+    <!-- <span class="text-xl font-bebas text-black-default">{author}</span> -->
   </div>
 </div>
