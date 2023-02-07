@@ -1,0 +1,92 @@
+---
+import { getCollection, getEntryBySlug, CollectionEntry } from "astro:content";
+const url = Astro.url;
+const [, locale] = url.pathname.split("/");
+let localizedData: { locale: string; uid: string; slug: string }[] = [];
+
+const getLocalizedData = async (
+  collection:
+    | CollectionEntry<"pages">[]
+    | CollectionEntry<"projects">[]
+    | CollectionEntry<"home">[]
+) => {
+  collection.forEach((page) => {
+    const [locale] = page.id.split("/");
+    localizedData.push({
+      locale,
+      slug: page.slug,
+      uid: page.data.uid,
+    });
+  });
+
+  return localizedData;
+};
+
+const pagesCollection = await getCollection("pages");
+const projectsCollection = await getCollection("projects");
+const homeCollection = await getCollection("home");
+getLocalizedData(pagesCollection);
+getLocalizedData(projectsCollection);
+getLocalizedData(homeCollection);
+
+const path = url.pathname.substring(1);
+const entry =
+  (await getEntryBySlug("pages", path)) ||
+  (await getEntryBySlug("projects", path)) ||
+  (await getEntryBySlug("home", path));
+
+const locales = localizedData.filter((page) => page.uid == entry?.data.uid);
+---
+
+{
+  locales.length > 1 && (
+    <>
+      <button
+        id="dropdownDefaultButton"
+        data-dropdown-placement="bottom-end"
+        data-dropdown-toggle="dropdown"
+        class="p-1 px-2 border-4 flex items-center shadow-neo-2px uppercase border-black-default rounded-md"
+        type="button"
+      >
+        {locale}
+        <svg
+          class="w-4 h-4 ml-2"
+          aria-hidden="true"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
+      <div
+        id="dropdown"
+        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-neo-2px border-2  border-black-default"
+      >
+        <ul class="py-2 " aria-labelledby="dropdownDefaultButton">
+          {locales.length > 1 &&
+            locales.map((pageLocale) => {
+              if (pageLocale.locale !== locale) {
+                return (
+                  <li>
+                    <a
+                      href={`/${pageLocale.slug}`}
+                      class="block uppercase px-2 py-1"
+                    >
+                      {pageLocale.locale}
+                    </a>
+                  </li>
+                );
+              }
+            })}
+        </ul>
+      </div>
+    </>
+  )
+}

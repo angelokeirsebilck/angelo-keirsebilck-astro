@@ -1,12 +1,27 @@
 ---
-import { getCollection, getEntryBySlug } from "astro:content";
-const allPages = await getCollection("pages");
+import { getCollection } from "astro:content";
+
+const url = Astro.url;
+const [, locale] = url.pathname.split("/");
+
+const allPages = await getCollection("pages", (page) => {
+  const [pageLocale] = page.id.split("/");
+  if (pageLocale == locale) {
+    return page;
+  }
+});
 ---
 
 <nav>
-  {
-    allPages.map((page) => {
-      return <a href={page.slug}>{page.data.title}</a>;
-    })
-  }
+  <ul class="flex gap-x-8">
+    {
+      allPages.map((page) => {
+        return (
+          <li>
+            <a href={`/${page.slug}`}>{page.data.title}</a>
+          </li>
+        );
+      })
+    }
+  </ul>
 </nav>

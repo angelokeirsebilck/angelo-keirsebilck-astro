@@ -1,6 +1,7 @@
 import { z } from "astro:content";
 
 export const homeSchema = z.object({
+  uid: z.string(),
   title: z.string(),
   description: z
     .string()

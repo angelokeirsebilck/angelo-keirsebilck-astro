@@ -1,0 +1,36 @@
+---
+import Layout from "src/layouts/Layout.astro";
+
+import { CollectionEntry, getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const homeCollections = await getCollection("home");
+
+  const getReturnData = (collection: CollectionEntry<"home">[]) => {
+    return collection.map((page) => {
+      return {
+        props: {
+          entry: page,
+        },
+        params: {
+          locale: page.slug,
+        },
+      };
+    });
+  };
+
+  const pagesReturnData = await getReturnData(homeCollections);
+  return pagesReturnData;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+export const prerender = true;
+---
+
+<Layout title={entry.data.title}>
+  <main>
+    <Content />
+  </main>
+</Layout>
