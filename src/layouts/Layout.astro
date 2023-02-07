@@ -15,11 +15,6 @@ export const prerender = true;
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script
-      is:inline
-      defer
-      src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"
-    ></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -29,6 +24,10 @@ export const prerender = true;
   <body class="font-poppins text-base text-black-default">
     <Header />
     <slot />
+    <script
+      is:inline
+      src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"
+    ></script>
   </body>
 </html>
 
