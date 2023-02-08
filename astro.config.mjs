@@ -12,9 +12,25 @@ import svelte from "@astrojs/svelte";
 import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
+import sitemap from "@astrojs/sitemap";
+
+// https://astro.build/config
 export default defineConfig({
   site: process.env.SITE_URL,
-  integrations: [tailwind(), mdx(), svelte()],
+  integrations: [
+    tailwind(),
+    mdx(),
+    svelte(),
+    sitemap({
+      i18n: {
+        defaultLocale: "nl",
+        locales: {
+          en: "en",
+          nl: "nl",
+        },
+      },
+    }),
+  ],
   output: "server",
   adapter: vercel(),
 });

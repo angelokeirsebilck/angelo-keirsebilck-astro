@@ -45,7 +45,7 @@ const locales = localizedData.filter((page) => page.uid == entry?.data.uid);
         id="dropdownDefaultButton"
         data-dropdown-placement="bottom-end"
         data-dropdown-toggle="dropdown"
-        class="p-1 px-2 border-4 flex items-center shadow-neo-2px uppercase border-black-default rounded-md"
+        class="p-1 px-2 border-2 flex items-center shadow-neo-2px uppercase border-black-default rounded-md"
         type="button"
       >
         {locale}
@@ -69,7 +69,7 @@ const locales = localizedData.filter((page) => page.uid == entry?.data.uid);
         id="dropdown"
         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-neo-2px border-2  border-black-default"
       >
-        <ul class="py-2 " aria-labelledby="dropdownDefaultButton">
+        <ul class="py-1" aria-labelledby="dropdownDefaultButton">
           {locales.length > 1 &&
             locales.map((pageLocale) => {
               if (pageLocale.locale !== locale) {
