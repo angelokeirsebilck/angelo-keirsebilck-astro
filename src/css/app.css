@@ -40,6 +40,10 @@
     @apply bg-green-default;
   }
 
+  .btn-blue {
+    @apply bg-blue-default;
+  }
+
   .btn-pink {
     @apply bg-pink-default;
   }
