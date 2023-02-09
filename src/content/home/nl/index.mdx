@@ -4,31 +4,4 @@ description: "SEO Bechrijving Home pagina"
 uid: "home"
 ---
 
-import HomeBanner from "@components/blocks/home/HomeBanner.astro";
-
-import hi from "@assets/svg/hi.png";
-
 test
-
-<HomeBanner>
-  <h1
-    class="font-bebas text-5xl flex justify-center items-center flex-col text-center lg:text-7xl max-w-2xl mb-8"
-    slot="title"
-  >
-    <img
-      src={hi}
-      width="83"
-      height="81"
-      class="inline transformo -translate-y-1.5"
-      alt="Hi svg illustration"
-    />
-    <div class="">
-      Op zoek naar een <br /> website op{" "}
-      <span class="underline-svg-1">jouw maat?</span>
-    </div>
-  </h1>
-  <div class="text-2xl mb-10" slot="intro">
-    Met mijn persoonlijke aanpak en expertise komen we tot een resultaat die
-    perfect past bij jouw bedrijf.
-  </div>
-</HomeBanner>
