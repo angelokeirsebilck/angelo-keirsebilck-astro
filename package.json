@@ -6,18 +6,19 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build --port 3002",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.15.1",
+    "@astrojs/node": "^5.0.3",
     "@astrojs/sitemap": "^1.0.1",
     "@astrojs/svelte": "^2.0.1",
     "@astrojs/tailwind": "^3.0.0",
     "@astrojs/vercel": "^3.0.0",
     "@twicpics/components": "^0.15.1",
-    "astro": "^2.0.0",
+    "astro": "^2.0.6",
     "class-variance-authority": "^0.4.0",
     "flowbite": "^1.6.3",
     "gsap": "^3.11.4",

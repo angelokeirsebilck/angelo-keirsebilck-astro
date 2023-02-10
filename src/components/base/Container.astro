@@ -14,7 +14,8 @@ const { bgColor } = Astro.props;
   class:list={[
     useGetBgColor(bgColor),
     useGetSpacing(bgColor),
-    "overflow-hidden relative",
+    bgColor !== "white" ? "border-y-3 border-black-default" : "",
+    "overflow-hidden relative ",
   ]}
 >
   <slot name="blobs" />

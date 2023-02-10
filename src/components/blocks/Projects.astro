@@ -1,0 +1,72 @@
+---
+import type { BackgroundColor } from "@custom-types/index";
+import type { LinkType } from "@custom-types/ui";
+import Link from "@components/ui/Link.astro";
+import Container from "@components/base/Container.astro";
+import ProjectsItem from "./projects/ProjectsItem.astro";
+
+export interface Props {
+  bgColor: BackgroundColor;
+  projectsLink?: LinkType;
+}
+
+const { bgColor, projectsLink } = Astro.props;
+---
+
+<Container bgColor={bgColor}>
+  <div class="default-grid">
+    <div class="col-span-full lg:col-span-6">
+      <div class="prose prose-custom max-w-none">
+        <h2 class="">Enkele projecten</h2>
+        <p>
+          Bekijk een selectie van mijn recente projecten en ontdek hoe ik mijn
+          klanten geholpen heb met hun doelstellingen.
+        </p>
+      </div>
+      {
+        projectsLink && (
+          <div class="mt-3 lg:mt-6 hidden lg:flex">
+            <Link link={projectsLink} />
+          </div>
+        )
+      }
+    </div>
+    <div class="col-span-full lg:col-span-12 pb-2 lg:bp-0">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-8 pb-2">
+        <ProjectsItem
+          link={{
+            style: {
+              size: "small",
+              intent: "green",
+            },
+            uri: "/nl/kerotec",
+            label: "Bekijk project",
+          }}
+          color={"pink"}
+          title="Kerotec"
+          text="Een recent project voor een lokale elektricien en zie hoe ik een professionele website heb ontwikkeld die bijdraagt aan hun online aanwezigheid en groei."
+        />
+        <ProjectsItem
+          link={{
+            style: {
+              size: "small",
+              intent: "green",
+            },
+            uri: "/nl/kerotec",
+            label: "Bekijk project",
+          }}
+          color={"blue"}
+          title="Demo Payload CMS + Svelktekit"
+          text="Project om te laten zien wat mogelijk is met Payload CMS en SvelteKit. SvelteKit zorgt voor zeer snelle laad tijden."
+        />
+      </div>
+      {
+        projectsLink && (
+          <div class="mt-6 flex lg:hidden">
+            <Link link={projectsLink} />
+          </div>
+        )
+      }
+    </div>
+  </div>
+</Container>

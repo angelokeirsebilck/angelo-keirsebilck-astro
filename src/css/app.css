@@ -36,6 +36,10 @@
     @apply px-8 py-3 text-2xl tracking-widest;
   }
 
+  .btn-small {
+    @apply px-6 py-2 text-xl;
+  }
+
   .btn-green {
     @apply bg-green-default;
   }

@@ -2,6 +2,7 @@
 import Layout from "src/layouts/Layout.astro";
 
 import { CollectionEntry, getCollection } from "astro:content";
+import Projects from "@components/blocks/Projects.astro";
 
 export async function getStaticPaths() {
   const homeCollections = await getCollection("home");
@@ -32,5 +33,16 @@ export const prerender = true;
 <Layout title={entry.data.title}>
   <main>
     <Content />
+    <Projects
+      bgColor={"white"}
+      projectsLink={{
+        label: "Bekijk alle projecten",
+        uri: "/nl/projecten",
+        style: {
+          intent: "pink",
+          size: "medium",
+        },
+      }}
+    />
   </main>
 </Layout>

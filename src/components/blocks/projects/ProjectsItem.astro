@@ -1,0 +1,26 @@
+---
+import type { LinkType } from "@custom-types/ui";
+import Card from "@components/ui/Card.astro";
+import Link from "@components/ui/Link.astro";
+
+export interface Props {
+  title: string;
+  text: string;
+  color: "green" | "pink" | "blue";
+  link: LinkType;
+}
+
+const { title, text, color, link } = Astro.props;
+---
+
+<Card color={color}>
+  <div slot="content" class="flex flex-col p-8 h-full">
+    <div class="prose prose-custom mb-10">
+      <h3>{title}</h3>
+      <p>{text}</p>
+    </div>
+    <div class="mt-auto">
+      <Link link={link} />
+    </div>
+  </div>
+</Card>

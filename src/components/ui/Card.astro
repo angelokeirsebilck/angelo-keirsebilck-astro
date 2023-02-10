@@ -1,0 +1,25 @@
+---
+import { useGetBgColor } from "@utils/useGetBackgroundColor";
+
+export interface Props {
+  color: "green" | "pink" | "blue";
+}
+
+const { color } = Astro.props;
+---
+
+<div
+  class="flex flex-col h-full border-black-default border-4 rounded-20 shadow-neo-4px"
+>
+  <div
+    class:list={[
+      "border-b-4 border-black-default rounded-t-[16px]",
+      useGetBgColor(color),
+    ]}
+  >
+    <div class="h-14"></div>
+  </div>
+  <div class="h-full">
+    <slot name="content" />
+  </div>
+</div>
