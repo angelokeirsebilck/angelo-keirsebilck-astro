@@ -61,7 +61,7 @@
   }
 
   .prose-custom {
-    @apply prose-headings:font-bebas prose-h3:lg:text-3xl prose-h3:text-2xl prose-h2:text-4xl prose-h2:lg:text-5xl prose-headings:mr-headings prose-headings:text-black-default prose-p:text-black-default;
+    @apply prose-headings:font-bebas prose-h3:lg:text-3xl prose-h3:text-2xl prose-h2:text-4xl prose-h2:lg:text-5xl prose-headings:m-headings prose-headings:text-black-default prose-p:text-black-default;
   }
 
   .swiper-button-disabled > div {
@@ -74,7 +74,7 @@
 }
 
 @layer utilities {
-  .mr-headings {
+  .m-headings {
     @apply mt-[1.2em] mb-[0.7em] first:mt-0;
   }
 
