@@ -18,7 +18,9 @@ const allPages = await getCollection("pages", (page) => {
       allPages.map((page) => {
         return (
           <li>
-            <a href={`/${page.slug}/`}>{page.data.title}</a>
+            <a href={`/${page.slug}/`} rel="prefetch">
+              {page.data.title}
+            </a>
           </li>
         );
       })
