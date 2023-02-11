@@ -38,10 +38,7 @@ const entry =
 const locales = localizedData.filter((page) => page.uid == entry?.data.uid);
 ---
 
-{path}
-<div class="my-4"></div>
-{JSON.stringify(entry, null, 2)}
-{
+<!-- {JSON.stringify(entry, null, 2)} -->{
   locales.length > 1 && (
     <>
       <button
