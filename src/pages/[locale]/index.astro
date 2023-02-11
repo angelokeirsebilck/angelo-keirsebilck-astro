@@ -3,6 +3,7 @@ import Layout from "src/layouts/Layout.astro";
 
 import { CollectionEntry, getCollection } from "astro:content";
 import Projects from "@components/blocks/Projects.astro";
+import Cta from "@components/blocks/Cta.astro";
 
 export async function getStaticPaths() {
   const homeCollections = await getCollection("home");
@@ -43,6 +44,18 @@ export const prerender = true;
           size: "medium",
         },
       }}
+    />
+    <Cta
+      link={{
+        style: {
+          intent: "green",
+          size: "medium",
+        },
+        uri: "/nl/contact",
+        label: "Afspraak maken",
+      }}
+      title="Klaar om samen te werken?"
+      text="Vraag vrijblijvend een offerte aan of maak een afspraak voor een gesprek"
     />
   </main>
 </Layout>

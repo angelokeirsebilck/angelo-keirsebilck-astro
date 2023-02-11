@@ -18,7 +18,7 @@
     "@astrojs/tailwind": "^3.0.0",
     "@astrojs/vercel": "^3.0.0",
     "@twicpics/components": "^0.15.1",
-    "astro": "^2.0.6",
+    "astro": "^0.0.0-headbody-20230210211734",
     "class-variance-authority": "^0.4.0",
     "flowbite": "^1.6.3",
     "gsap": "^3.11.4",
