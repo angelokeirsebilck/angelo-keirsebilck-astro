@@ -20,6 +20,7 @@ import node from "@astrojs/node";
 // https://astro.build/config
 export default defineConfig({
   site: process.env.SITE_URL,
+  trailingSlash: "always",
   integrations: [
     tailwind(),
     mdx(),
