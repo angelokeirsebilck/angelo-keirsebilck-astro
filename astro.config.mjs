@@ -24,7 +24,7 @@ const { PUBLIC_SITE_URL } = loadEnv(import.meta.env.MODE, process.cwd(), "");
 // https://astro.build/config
 export default defineConfig({
   site: PUBLIC_SITE_URL,
-  trailingSlash: "never",
+  trailingSlash: "always",
   integrations: [
     tailwind(),
     mdx(),
