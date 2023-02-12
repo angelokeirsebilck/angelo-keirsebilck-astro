@@ -4,6 +4,13 @@ import arrowPointer from "@assets/svg/arrow-1.svg";
 import lines from "@assets/svg/lines-homebanner.svg";
 import face from "@assets/svg/face.svg";
 import blob1 from "@assets/svg/blob-pink-1.svg";
+
+export interface Props {
+  uri: string;
+  label: string;
+}
+
+const { uri, label } = Astro.props;
 ---
 
 <!-- <img
@@ -41,8 +48,8 @@ import blob1 from "@assets/svg/blob-pink-1.svg";
         link={{
           extraClasses: "transform rotate-[-1deg]",
           style: { intent: "pink", size: "medium" },
-          uri: "/contact",
-          label: "Maak vrijbijvend een afspraak",
+          uri,
+          label,
         }}
       />
     </div>

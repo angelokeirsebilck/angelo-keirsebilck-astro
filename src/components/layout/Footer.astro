@@ -23,11 +23,17 @@ const navListNL = [
     label: "Contact",
   },
 ];
+
+export interface Props {
+  ctaActive: boolean;
+}
+
+const { ctaActive } = Astro.props;
 ---
 
-<div class="-mt-56">
+<div class:list={[ctaActive ? "-mt-32 lg:-mt-56" : ""]}>
   <Container bgColor={"black"}>
-    <div class="default-grid pt-10">
+    <div class:list={["default-grid", ctaActive ? "pt-10" : ""]}>
       <div class="col-span-full lg:col-span-6">
         <a href={`/${locale}`}>
           <img

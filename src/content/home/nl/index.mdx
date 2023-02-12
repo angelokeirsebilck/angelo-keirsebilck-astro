@@ -2,6 +2,13 @@
 title: "Angelo Keirsebilck - Web Development"
 description: "SEO Bechrijving Home pagina"
 uid: "home"
+cta:
+  {
+    title: "Klaar om samen te werken?",
+    text: "Vraag vrijblijvend een offerte aan of maak een afspraak voor een gesprek",
+    uri: "/nl/contact/",
+    linkLabel: "Afspraak maken",
+  }
 ---
 
 import HomeBanner from "@components/blocks/home/HomeBanner.astro";
@@ -14,8 +21,9 @@ import TextMedia from "@components/blocks/TextMedia.astro";
 import USP from "@components/blocks/USP.astro";
 import Testiomonials from "@components/blocks/Testiomonials.astro";
 import Cta from "@components/blocks/Cta.astro";
+import Projects from "@components/blocks/Projects.astro";
 
-<HomeBanner>
+<HomeBanner uri="/nl/contact/" label="Maak vrijblijvend een afspraak">
   <h1
     class="font-bebas text-5xl flex justify-center items-center flex-col text-center lg:text-7xl max-w-2xl mb-8"
     slot="title"
@@ -42,7 +50,7 @@ import Cta from "@components/blocks/Cta.astro";
   textPos={"left"}
   link={{
     label: "Meer over mijn werkwijze",
-    uri: "/werkwijze",
+    uri: "/nl/werkwijze/",
     style: {
       intent: "pink",
       size: "medium",
@@ -110,3 +118,14 @@ import Cta from "@components/blocks/Cta.astro";
     />
   </div>
 </Testiomonials>
+<Projects
+  bgColor={"white"}
+  projectsLink={{
+    label: "Bekijk alle projecten",
+    uri: "/nl/projecten/",
+    style: {
+      intent: "pink",
+      size: "medium",
+    },
+  }}
+/>

@@ -3,12 +3,19 @@ import "@css/fonts.css";
 import "@css/app.css";
 import Header from "@components/layout/Header.astro";
 import Footer from "@components/layout/Footer.astro";
+import Cta from "@components/blocks/Cta.astro";
 
 export interface Props {
   title: string;
+  cta?: {
+    title: string;
+    text: string;
+    uri: string;
+    linkLabel: string;
+  };
 }
 
-const { title } = Astro.props;
+const { title, cta } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -25,7 +32,24 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <body class="font-poppins text-base text-black-default">
     <Header />
     <slot />
-    <Footer />
+    {
+      cta && (
+        <Cta
+          link={{
+            style: {
+              intent: "green",
+              size: "medium",
+            },
+            uri: cta.uri,
+            label: cta.linkLabel,
+          }}
+          title={cta.title}
+          text={cta.text}
+        />
+      )
+    }
+
+    <Footer ctaActive={cta !== undefined} />
   </body>
 </html>
 

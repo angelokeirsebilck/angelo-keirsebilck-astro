@@ -69,14 +69,14 @@ const locales = localizedData.filter((page) => page.uid == entry?.data.uid);
         id="dropdown"
         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-neo-2px border-2  border-black-default"
       >
-        <ul class="py-1" aria-labelledby="dropdownDefaultButton">
+        <ul class="" aria-labelledby="dropdownDefaultButton">
           {locales.length > 1 &&
             locales.map((pageLocale) => {
               if (pageLocale.locale !== locale) {
                 return (
                   <li>
                     <a
-                      href={`/${pageLocale.slug}`}
+                      href={`/${pageLocale.slug}/`}
                       class="block uppercase px-2 py-1"
                     >
                       {pageLocale.locale}

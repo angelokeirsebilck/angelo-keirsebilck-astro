@@ -3,7 +3,6 @@ import Layout from "src/layouts/Layout.astro";
 
 import { CollectionEntry, getCollection } from "astro:content";
 import Projects from "@components/blocks/Projects.astro";
-import Cta from "@components/blocks/Cta.astro";
 
 export async function getStaticPaths() {
   const homeCollections = await getCollection("home");
@@ -28,34 +27,13 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
+const cta = entry.data.cta ? entry.data.cta : undefined;
+
 export const prerender = true;
 ---
 
-<Layout title={entry.data.title}>
+<Layout title={entry.data.title} cta={cta}>
   <main>
     <Content />
-    <Projects
-      bgColor={"white"}
-      projectsLink={{
-        label: "Bekijk alle projecten",
-        uri: "/nl/projecten",
-        style: {
-          intent: "pink",
-          size: "medium",
-        },
-      }}
-    />
-    <Cta
-      link={{
-        style: {
-          intent: "green",
-          size: "medium",
-        },
-        uri: "/nl/contact",
-        label: "Afspraak maken",
-      }}
-      title="Klaar om samen te werken?"
-      text="Vraag vrijblijvend een offerte aan of maak een afspraak voor een gesprek"
-    />
   </main>
 </Layout>

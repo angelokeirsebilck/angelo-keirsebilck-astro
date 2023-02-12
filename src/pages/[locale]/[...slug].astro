@@ -33,10 +33,12 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
+const cta = entry.data.cta ? entry.data.cta : undefined;
+
 export const prerender = true;
 ---
 
-<Layout title={entry.data.title}>
+<Layout title={entry.data.title} cta={cta}>
   <main>
     <Content />
   </main>
