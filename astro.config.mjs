@@ -7,9 +7,7 @@ import vercel from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
 import prefetch from "@astrojs/prefetch";
 import critters from "astro-critters";
-const {
-  PUBLIC_SITE_URL
-} = loadEnv(import.meta.env.MODE, process.cwd(), "");
+const { PUBLIC_SITE_URL } = loadEnv(import.meta.env.MODE, process.cwd(), "");
 
 // https://astro.build/config
 
@@ -17,15 +15,21 @@ const {
 export default defineConfig({
   site: PUBLIC_SITE_URL,
   trailingSlash: "always",
-  integrations: [tailwind(), prefetch(), mdx(), svelte(), sitemap({
-    i18n: {
-      defaultLocale: "nl",
-      locales: {
-        en: "en",
-        nl: "nl"
-      }
-    }
-  }), critters()],
+  integrations: [
+    tailwind(),
+    prefetch(),
+    mdx(),
+    svelte(),
+    sitemap({
+      i18n: {
+        defaultLocale: "nl",
+        locales: {
+          en: "en",
+          nl: "nl",
+        },
+      },
+    }),
+  ],
   output: "server",
-  adapter: vercel()
+  adapter: vercel(),
 });
