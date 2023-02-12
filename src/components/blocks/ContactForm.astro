@@ -1,0 +1,18 @@
+---
+import Container from "@components/base/Container.astro";
+import ContactForm from "@components/forms/ContactForm.vue";
+
+const url = Astro.url;
+const [, locale] = url.pathname.split("/");
+
+export interface Props {}
+const {} = Astro.props;
+---
+
+<Container bgColor={"white"}>
+  <div class="default-grid">
+    <div class="col-span-full lg:col-span-12">
+      <ContactForm locale={locale} client:visible />
+    </div>
+  </div>
+</Container>

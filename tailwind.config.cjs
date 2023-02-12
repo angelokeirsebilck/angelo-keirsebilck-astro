@@ -1,3 +1,5 @@
+const formKitTailwind = require("@formkit/themes/tailwindcss");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -14,6 +16,9 @@ module.exports = {
       colors: {
         black: {
           default: "#121212",
+        },
+        error: {
+          default: "#DB6262",
         },
         green: {
           default: "#57B79D",
@@ -93,5 +98,6 @@ module.exports = {
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
     require("flowbite/plugin"),
+    formKitTailwind,
   ],
 };

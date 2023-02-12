@@ -29,11 +29,11 @@
   }
 
   .btn {
-    @apply border-3 border-black-default text-center font-bebas shadow-neo-4px rounded-md lg:hover:shadow-neo-4px-hover transition-all duration-150;
+    @apply border-3 tracking-widest border-black-default text-center font-bebas shadow-neo-4px rounded-md lg:hover:shadow-neo-4px-hover transition-all duration-150;
   }
 
   .btn-medium {
-    @apply px-8 py-3 text-2xl tracking-widest;
+    @apply px-8 py-3 text-2xl;
   }
 
   .btn-small {
@@ -80,5 +80,30 @@
 
   .neo-brutal-border {
     @apply after:absolute  after:w-[calc(100%_-_12px)] after:-z-10 after:h-full after:border-4 after:border-black-default after:rounded-inherit after:top-3 after:right-0;
+  }
+
+  .text-stroke-black {
+    -webkit-text-stroke: 2px black;
+    color: white;
+    text-shadow: 4px 4px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000,
+      1px 1px 0 #000;
+  }
+  .text-stroke-green {
+    -webkit-text-stroke: 2px black;
+    color: white;
+    text-shadow: 4px 4px 0 #57b79d, 0px 0px 0 #57b79d, 0px 0px 0 #57b79d,
+      0px 0px 0 #57b79d, 1px 1px 0 #57b79d;
+  }
+  .text-stroke-pink {
+    -webkit-text-stroke: 2px black;
+    color: white;
+    text-shadow: 4px 4px 0 #f2b9ce, 0px 0px 0 #f2b9ce, 0px 0px 0 #f2b9ce,
+      0px 0px 0 #f2b9ce, 1px 1px 0 #f2b9ce;
+  }
+  .text-stroke-blue {
+    -webkit-text-stroke: 2px black;
+    color: white;
+    text-shadow: 4px 4px 0 #5bc0c8, 0px 0px 0 #5bc0c8, 0px 0px 0 #5bc0c8,
+      0px 0px 0 #5bc0c8, 1px 1px 0 #5bc0c8;
   }
 }

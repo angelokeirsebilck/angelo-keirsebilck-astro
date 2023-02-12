@@ -20,7 +20,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -29,7 +29,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="canonical" href={canonicalURL} />
     <title>{title}</title>
   </head>
-  <body class="font-poppins text-base text-black-default">
+  <body
+    class="font-poppins text-base flex flex-col min-h-screen text-black-default"
+  >
     <Header />
     <slot />
     {

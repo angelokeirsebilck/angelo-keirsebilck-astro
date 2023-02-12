@@ -7,7 +7,11 @@ import vercel from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
 import prefetch from "@astrojs/prefetch";
 import critters from "astro-critters";
+import vue from "@astrojs/vue";
+
 const { PUBLIC_SITE_URL } = loadEnv(import.meta.env.MODE, process.cwd(), "");
+
+// https://astro.build/config
 
 // https://astro.build/config
 
@@ -29,6 +33,7 @@ export default defineConfig({
         },
       },
     }),
+    vue({ appEntrypoint: "/src/pages/_app" }),
   ],
   output: "server",
   adapter: vercel(),

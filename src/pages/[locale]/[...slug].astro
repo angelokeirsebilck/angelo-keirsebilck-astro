@@ -40,6 +40,13 @@ export const prerender = true;
 
 <Layout title={entry.data.title} cta={cta}>
   <main>
+    <div class="container mt-6">
+      <h1
+        class="font-bebas text-5xl lg:text-7xl tracking-wider text-stroke-black"
+      >
+        {entry.data.title}
+      </h1>
+    </div>
     <Content />
   </main>
 </Layout>

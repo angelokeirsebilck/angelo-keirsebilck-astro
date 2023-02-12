@@ -9,6 +9,7 @@
       "@schemas/*": ["src/schemas/*"],
       "@utils/*": ["src/utils/*"],
       "@custom-types/*": ["src/custom-types/*"]
-    }
+    },
+    "jsx": "preserve"
   }
 }

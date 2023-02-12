@@ -31,7 +31,7 @@ export interface Props {
 const { ctaActive } = Astro.props;
 ---
 
-<div class:list={[ctaActive ? "-mt-32 lg:-mt-56" : ""]}>
+<div class:list={["mt-auto", ctaActive ? "-mt-32 lg:-mt-56" : ""]}>
   <Container bgColor={"black"}>
     <div class:list={["default-grid", ctaActive ? "pt-10" : ""]}>
       <div class="col-span-full lg:col-span-6">
