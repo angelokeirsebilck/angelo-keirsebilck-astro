@@ -61,12 +61,15 @@ const submitHandler = async (fields: FormData) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "x-locale": props.locale,
     },
     body: JSON.stringify(fields),
   });
 
-  const data = await res.json();
-  console.log(data);
+  if (res.status == 200) {
+    const data = await res.json();
+    window.location.href = data.redirectUrl;
+  }
 };
 </script>
 
