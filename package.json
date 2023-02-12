@@ -21,6 +21,7 @@
     "@twicpics/components": "^0.15.1",
     "add": "^2.0.6",
     "astro": "^2.0.10",
+    "astro-critters": "^1.1.29",
     "class-variance-authority": "^0.4.0",
     "flowbite": "^1.6.3",
     "gsap": "^3.11.4",
