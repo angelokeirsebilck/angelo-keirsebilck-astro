@@ -2,7 +2,7 @@
   "trailingSlash": true,
   "headers": [
     {
-      "source": "/:all*(css|js|svg)",
+      "source": "/:all*(css|js|svg|woff2)",
       "headers": [
         {
           "key": "Cache-Control",
