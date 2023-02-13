@@ -57,7 +57,7 @@ const contactSchema = [
 ];
 
 const submitHandler = async (fields: FormData) => {
-  const res = await fetch("/submitForm.json", {
+  const res = await fetch("/api/submitForm.json", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
