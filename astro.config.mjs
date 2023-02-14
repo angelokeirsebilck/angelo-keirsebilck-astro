@@ -19,6 +19,7 @@ export default defineConfig({
     mdx(),
     svelte(),
     sitemap({
+      filter: (page) => !page.includes("thanks") && !page.includes("bedankt"),
       i18n: {
         defaultLocale: "nl",
         locales: {

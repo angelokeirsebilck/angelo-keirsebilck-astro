@@ -68,7 +68,7 @@ const submitHandler = async (fields: FormData) => {
 
   if (res.status == 200) {
     const data = await res.json();
-    window.location.href = data.redirectUrl;
+    // window.location.href = data.redirectUrl;
   }
 };
 </script>
