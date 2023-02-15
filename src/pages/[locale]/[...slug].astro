@@ -1,7 +1,7 @@
 ---
 import Layout from "src/layouts/Layout.astro";
 import { CollectionEntry, getCollection } from "astro:content";
-
+import Mockup from "@components/blocks/Mockup.astro";
 export async function getStaticPaths() {
   const pagesCollection = await getCollection("pages");
   const projectsCollection = await getCollection("projects");
@@ -48,5 +48,9 @@ export const prerender = true;
       </h1>
     </div>
     <Content />
+    <Mockup
+      desktopVideo="https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fvideos%2Fkerotec.mp4"
+      mobileImage="https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fimages%2Fkerotec-mobile-static.jpg"
+    />
   </main>
 </Layout>

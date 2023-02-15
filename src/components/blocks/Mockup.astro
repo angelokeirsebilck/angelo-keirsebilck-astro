@@ -1,0 +1,28 @@
+---
+import Container from "@components/base/Container.astro";
+import TwicPic from "@components/base/TwicPic.svelte";
+
+export interface Props {
+  desktopVideo: string;
+  mobileImage: string;
+}
+
+const { desktopVideo, mobileImage } = Astro.props;
+---
+
+<Container bgColor={"white"}>
+  <div class="default-grid pb-3">
+    <div class="col-span-full lg:col-span-14">
+      <div class="rounded-20 border-4 border-black-default shadow-neo-4px">
+        <div class="border-b-4 h-16 border-black-default"></div>
+        <video autoplay loop muted class="rounded-b-[17px]">
+          <source src={desktopVideo} type="video/mp4" />
+          Your browser does not support HTML video.
+        </video>
+      </div>
+    </div>
+    <div class="col-span-full lg:col-span-4">
+      <TwicPic src={mobileImage} ratio="272:548" />
+    </div>
+  </div>
+</Container>

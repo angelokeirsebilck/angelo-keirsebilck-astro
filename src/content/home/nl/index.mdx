@@ -21,7 +21,7 @@ import TextMedia from "@components/blocks/TextMedia.astro";
 import USP from "@components/blocks/USP.astro";
 import Testiomonials from "@components/blocks/Testiomonials.astro";
 import Cta from "@components/blocks/Cta.astro";
-import Projects from "@components/blocks/Projects.astro";
+import ProjectsNL from "@components/blocks/ProjectsNL.astro";
 
 <HomeBanner uri="/nl/contact/" label="Maak vrijblijvend een afspraak">
   <h1
@@ -63,25 +63,24 @@ import Projects from "@components/blocks/Projects.astro";
       class="absolute -bottom-20 -left-[15%] lg:left-[50%]"
       width="378"
       height="200"
-      alt="Random Blog"
+      alt="Random Blog" 
     />
   </div>
-  <h2 slot="title">
-    Persoonlijke aanpak en performantie: de sleutel tot{" "}
+  <h2 slot="title" class="mt-0">
+    <span> Persoonlijke aanpak en performantie: de sleutel tot</span>
     <span class="underline-svg-2">succesvolle</span>
     <span class="underline-svg-2">websites</span>
   </h2>
-  <div class="" slot="text">
-    <p>
-      Mijn focus ligt op het creëren van performante websites met een
-      persoonlijke aanpak. Ik geloof dat elk project uniek is en daarom stel ik
-      mijn klanten centraal bij het ontwerpen en ontwikkelen van hun website.
-    </p>
-    <p>
-      Door gebruik te maken van de modernste technologieën, garandeer ik snelle
-      laadtijden en een gebruiksvriendelijke interface voor een optimale
-      gebruikerservaring.
-    </p>
+  <div slot="text">
+        Mijn focus ligt op het creëren van performante websites met een
+        persoonlijke aanpak. Ik geloof dat elk project uniek is en daarom stel
+        ik mijn klanten centraal bij het ontwerpen en ontwikkelen van hun
+        website.
+
+        Door gebruik te maken van de modernste technologieën, garandeer ik
+        snelle laadtijden en een gebruiksvriendelijke interface voor een
+        optimale gebruikerservaring.
+
   </div>
   <div
     class="max-w-md flex justify-center items-center h-full mx-auto"
@@ -118,7 +117,7 @@ import Projects from "@components/blocks/Projects.astro";
     />
   </div>
 </Testiomonials>
-<Projects
+<ProjectsNL
   bgColor={"white"}
   projectsLink={{
     label: "Bekijk alle projecten",

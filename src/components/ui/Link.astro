@@ -11,6 +11,8 @@ const { link } = Astro.props;
 
 <a
   href={link.uri}
+  target={link.target}
+  rel={link.rel}
   class:list={[useGetButtonStyle(link.style), link.extraClasses]}
 >
   {link.label}

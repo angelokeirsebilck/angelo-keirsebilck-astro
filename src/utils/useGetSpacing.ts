@@ -1,7 +1,14 @@
 import type { BackgroundColor } from "@custom-types/index";
 
-export const useGetSpacing = (bgColor: BackgroundColor) => {
-  if (bgColor == "white") return "my-16 lg:my-32";
-
-  return "py-16 lg:py-32";
+export const useGetSpacing = (
+  bgColor: BackgroundColor,
+  firstBlock: boolean = false
+) => {
+  if (bgColor == "white") {
+    if (firstBlock) return "mb-16 lg:mb-32 mt-10";
+    return "my-16 lg:my-32";
+  } else {
+    if (firstBlock) return "pb-16 lg:pb-32 pt-16";
+    return "py-16 lg:py-32";
+  }
 };

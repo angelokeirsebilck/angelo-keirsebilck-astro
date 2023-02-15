@@ -5,4 +5,6 @@ export type LinkType = {
   uri: string;
   label: string;
   extraClasses?: string;
+  target?: string;
+  rel?: string;
 };

@@ -10,6 +10,7 @@ import vue from "@astrojs/vue";
 
 const { PUBLIC_SITE_URL } = loadEnv(import.meta.env.MODE, process.cwd(), "");
 
+// https://astro.build/config
 export default defineConfig({
   site: PUBLIC_SITE_URL,
   trailingSlash: "always",
@@ -28,7 +29,9 @@ export default defineConfig({
         },
       },
     }),
-    vue({ appEntrypoint: "/src/pages/_app" }),
+    vue({
+      appEntrypoint: "/src/pages/_app",
+    }),
   ],
   output: "server",
   adapter: vercel(),
