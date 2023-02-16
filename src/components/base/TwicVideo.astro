@@ -1,0 +1,16 @@
+---
+export interface Props {
+  ratio: string;
+  src: string;
+}
+
+const { src, ratio } = Astro.props;
+---
+
+<twic-video src={src} ratio={ratio}></twic-video>
+
+<script>
+  import { TwicVideo } from "@twicpics/components/webcomponents";
+
+  customElements.define(`twic-video`, TwicVideo);
+</script>

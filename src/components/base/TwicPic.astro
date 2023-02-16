@@ -1,10 +1,16 @@
 ---
-import { installTwicPics, TwicImg } from "@twicpics/components/webcomponents";
+export interface Props {
+  ratio: string;
+  src: string;
+}
 
-installTwicPics({
-  // domain is mandatory
-  domain: `https://angelokeirsebilck.twic.pics`,
-});
-
-customElements.define(`twic-img`, TwicImg);
+const { src, ratio } = Astro.props;
 ---
+
+<twic-img src={src} ratio={ratio}></twic-img>
+
+<script>
+  import { TwicImg } from "@twicpics/components/webcomponents";
+
+  customElements.define(`twic-img`, TwicImg);
+</script>

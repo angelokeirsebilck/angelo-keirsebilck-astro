@@ -1,28 +1,86 @@
 ---
 import Container from "@components/base/Container.astro";
-import TwicPic from "@components/base/TwicPic.svelte";
+import TwicPic from "@components/base/TwicPic.astro";
+import TwicVideo from "@components/base/TwicVideo.astro";
+
+type TwicPicType = {
+  src: string;
+  ratio: string;
+};
 
 export interface Props {
-  desktopVideo: string;
-  mobileImage: string;
+  desktop: TwicPicType;
+  tablet: TwicPicType;
+  mobile: TwicPicType;
 }
 
-const { desktopVideo, mobileImage } = Astro.props;
+const { desktop, tablet, mobile } = Astro.props;
 ---
 
 <Container bgColor={"white"}>
   <div class="default-grid pb-3">
-    <div class="col-span-full lg:col-span-14">
+    <div class="col-span-full row-start-1 lg:col-start-3 lg:col-span-14">
       <div class="rounded-20 border-4 border-black-default shadow-neo-4px">
-        <div class="border-b-4 h-16 border-black-default"></div>
+        <div
+          class="border-b-4 h-16 border-black-default flex pl-4 bg-gray-200 rounded-t-[18px] items-center gap-x-2"
+        >
+          <div class="h-4 w-4 bg-pink-default rounded-full"></div>
+          <div class="h-4 w-4 bg-blue-default rounded-full"></div>
+          <div class="h-4 w-4 bg-green-default rounded-full"></div>
+
+          <span class="font-bebas text-2xl inline ml-4">Desktop</span>
+        </div>
         <video autoplay loop muted class="rounded-b-[17px]">
-          <source src={desktopVideo} type="video/mp4" />
+          <source src={desktop.src} type="video/mp4" />
           Your browser does not support HTML video.
         </video>
       </div>
     </div>
-    <div class="col-span-full lg:col-span-4">
-      <TwicPic src={mobileImage} ratio="272:548" />
+    <div
+      class="col-span-full lg:row-start-1 lg:col-start-15 lg:col-span-4 lg:mt-32"
+    >
+      <div
+        class="rounded-20 border-4 overflow-hidden border-black-default shadow-neo-4px"
+      >
+        <div
+          class="border-b-4 h-16 border-black-default flex pl-4 bg-gray-200 rounded-t-[18px] items-center gap-x-2"
+        >
+          <div class="h-4 w-4 bg-pink-default rounded-full"></div>
+          <div class="h-4 w-4 bg-blue-default rounded-full"></div>
+          <div class="h-4 w-4 bg-green-default rounded-full"></div>
+          <span class="font-bebas text-2xl inline ml-4">Mobile</span>
+        </div>
+        {
+          mobile.src.includes("mp4") || mobile.src.includes("webm") ? (
+            <TwicVideo ratio={mobile.ratio} src={mobile.src} />
+          ) : (
+            <TwicPic ratio={mobile.ratio} src={mobile.src} />
+          )
+        }
+      </div>
+    </div>
+    <div
+      class="col-span-full lg:row-start-2 lg:col-start-1 lg:col-span-9 lg:-mt-48"
+    >
+      <div
+        class="rounded-20 overflow-hidden border-4 border-black-default shadow-neo-4px"
+      >
+        <div
+          class="border-b-4 h-16 border-black-default flex pl-4 bg-gray-200 rounded-t-[18px] items-center gap-x-2"
+        >
+          <div class="h-4 w-4 bg-pink-default rounded-full"></div>
+          <div class="h-4 w-4 bg-blue-default rounded-full"></div>
+          <div class="h-4 w-4 bg-green-default rounded-full"></div>
+          <span class="font-bebas text-2xl inline ml-4">Tablet</span>
+        </div>
+        {
+          tablet.src.includes("mp4") || tablet.src.includes("webm") ? (
+            <TwicVideo ratio={tablet.ratio} src={tablet.src} />
+          ) : (
+            <TwicPic ratio={tablet.ratio} src={tablet.src} />
+          )
+        }
+      </div>
     </div>
   </div>
 </Container>
