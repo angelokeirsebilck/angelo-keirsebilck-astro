@@ -8,7 +8,7 @@ export interface Props {
 const { img } = Astro.props;
 ---
 
-<twic-img src={img.src} ratio={img.ratio}></twic-img>
+<twic-img {...img}></twic-img>
 
 <script>
   import { TwicImg } from "@twicpics/components/webcomponents";

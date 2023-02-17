@@ -21,14 +21,19 @@ const { title, text, color, link, img } = Astro.props;
     <div class="border-b-4 border-black-default">
       <TwicPic img={img} />
     </div>
-    <div class="p-8">
+    <div class="p-8 h-full flex flex-col">
       <div class="prose prose-custom mb-10">
-        <h3>{title}</h3>
         <p>{text}</p>
       </div>
-      <div class="mt-auto">
+      <div class="mt-auto flex">
         <Link link={link} />
       </div>
     </div>
   </div>
 </Card>
+
+<script>
+  import { TwicImg } from "@twicpics/components/webcomponents";
+
+  customElements.define(`twic-img`, TwicImg);
+</script>
