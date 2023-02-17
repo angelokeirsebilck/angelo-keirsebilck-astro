@@ -8,15 +8,19 @@ cta:
     text: "Vraag vrijblijvend een offerte aan of maak een afspraak voor een gesprek",
     uri: "/nl/contact/",
     linkLabel: "Afspraak maken",
+    noMT: true
   }
 ---
 
 import techArrow from "@assets/svg/tech-arrow2.svg";
 import love from "@assets/svg/love.svg";
+import blobWhite1 from "@assets/svg/blob-white-1.svg";
 
 import Intro from "@components/blocks/Intro.astro";
 import TechLogos from "@components/ui/TechLogos.astro";
 import Mockup from "@components/blocks/Mockup.astro";
+import TextMedia from "@components/blocks/TextMedia.astro";
+import TwicPic from "@components/base/TwicPic.astro";
 
 <Intro
   link={{
@@ -61,7 +65,42 @@ import Mockup from "@components/blocks/Mockup.astro";
   </div>
 </Intro>
 
+<TextMedia bgColor={"blue"} textPos={"left"}>
+  <div slot="blobs">
+      <img
+      src={blobWhite1}
+      class="absolute -bottom-20 -left-[20%] lg:left-[30%]"
+      width="378"
+      height="200"
+      alt="Random Blog" 
+    /></div>
+  <h2 slot="title" class="mt-0">
+    <span>Diensten goed in de kijker</span>
+  </h2>
+  <div slot="text">
+    Als professionele elektricien biedt Kerotec een breed scala aan diensten
+    aan, waaronder verlichting, renovatie en nieuwbouw, domotica en parlo-
+    en videofonie. 
+    
+    Kerotec is gespecialiseerd in het bieden van oplossingen
+    op maat voor elke specifieke situatie, en heeft de kennis en ervaring om
+    projecten van elke grootte aan te kunnen.
+  </div>
+  <div
+    class="border-4 overflow-hidden rounded-20 border-black-default"
+    slot="image"
+  >
+    <TwicPic
+      img={{
+        ratio: "1809:1009",
+        src: "https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fimages%2Fkerotec-diensten.png"
+      }}     
+    />
+  </div>
+</TextMedia>
+
 <Mockup
+  title="Responsief Design"
   desktop={{
     src: "https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fvideos%2Fkerotec.mp4",
     ratio: "1140:600",

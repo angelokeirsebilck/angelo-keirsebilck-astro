@@ -9,7 +9,8 @@
       "@schemas/*": ["src/schemas/*"],
       "@utils/*": ["src/utils/*"],
       "@custom-types/*": ["src/custom-types/*"],
-      "@email/*": ["src/email/*"]
+      "@email/*": ["src/email/*"],
+      "@customTypes/*": ["src/customTypes/*"]
     },
     "jsx": "preserve"
   }

@@ -7,12 +7,13 @@ export interface Props {
   title: string;
   link: LinkType;
   text: string;
+  noMT: boolean;
 }
 
-const { title, text, link } = Astro.props;
+const { title, text, link, noMT } = Astro.props;
 ---
 
-<Container bgColor={"white"} extraClasses={"!mt-0"}>
+<Container bgColor={"white"} extraClasses={noMT ? "!mt-0" : ""}>
   <div class="default-grid pb-3">
     <div
       class="col-span-full relative lg:col-start-4 lg:col-span-12 rounded-20 neo-brutal-border after:bg-white after:z-10"

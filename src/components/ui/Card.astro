@@ -3,9 +3,10 @@ import { useGetBgColor } from "@utils/useGetBackgroundColor";
 
 export interface Props {
   color: "green" | "pink" | "blue";
+  title?: string;
 }
 
-const { color } = Astro.props;
+const { color, title } = Astro.props;
 ---
 
 <div
@@ -17,7 +18,11 @@ const { color } = Astro.props;
       useGetBgColor(color),
     ]}
   >
-    <div class="h-14"></div>
+    <div class="py-4 ml-8 flex items-center">
+      <div class="prose prose-custom">
+        <h3 class="mb-0">{title}</h3>
+      </div>
+    </div>
   </div>
   <div class="h-full">
     <slot name="content" />

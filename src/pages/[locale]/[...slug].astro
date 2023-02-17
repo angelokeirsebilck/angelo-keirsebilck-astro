@@ -1,6 +1,8 @@
 ---
 import Layout from "src/layouts/Layout.astro";
 import { CollectionEntry, getCollection } from "astro:content";
+import TextMedia from "@components/blocks/TextMedia.astro";
+import TwicPic from "@components/base/TwicPic.astro";
 
 export async function getStaticPaths() {
   const pagesCollection = await getCollection("pages");
@@ -48,5 +50,28 @@ export const prerender = true;
       </h1>
     </div>
     <Content />
+
+    <!-- <TextMedia bgColor={"blue"} textPos={"left"}>
+      <div slot="blobs"></div>
+      <h2 slot="title" class="mt-0">
+        <span>Diensten goed in de kijker</span>
+      </h2>
+      <div slot="text">
+        Als professionele elektricien biedt Kerotec een breed scala aan diensten
+        aan, waaronder verlichting, renovatie en nieuwbouw, domotica en parlo-
+        en videofonie. Kerotec is gespecialiseerd in het bieden van oplossingen
+        op maat voor elke specifieke situatie, en heeft de kennis en ervaring om
+        projecten van elke grootte aan te kunnen.
+      </div>
+      <div
+        class="border-4 overflow-hidden rounded-20 border-black-default"
+        slot="image"
+      >
+        <TwicPic
+          ratio="1809:1009"
+          src="https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fimages%2Fkerotec-diensten.png"
+        />
+      </div>
+    </TextMedia> -->
   </main>
 </Layout>

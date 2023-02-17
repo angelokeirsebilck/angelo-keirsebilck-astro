@@ -12,6 +12,7 @@ export interface Props {
     text: string;
     uri: string;
     linkLabel: string;
+    noMT: boolean;
   };
 }
 
@@ -47,6 +48,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           }}
           title={cta.title}
           text={cta.text}
+          noMT={cta.noMT}
         />
       )
     }
@@ -68,5 +70,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   installTwicPics({
     domain: `https://angelokeirsebilck.twic.pics`,
+    env: import.meta.env.PUBLIC_TWIC_PIC_ENV,
   });
 </script>

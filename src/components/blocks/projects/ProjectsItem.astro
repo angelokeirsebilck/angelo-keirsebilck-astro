@@ -2,25 +2,33 @@
 import type { LinkType } from "@custom-types/ui";
 import Card from "@components/ui/Card.astro";
 import Link from "@components/ui/Link.astro";
+import TwicPic from "@components/base/TwicPic.astro";
+import type { TwicPicType } from "@customTypes/index";
 
 export interface Props {
   title: string;
   text: string;
   color: "green" | "pink" | "blue";
   link: LinkType;
+  img: TwicPicType;
 }
 
-const { title, text, color, link } = Astro.props;
+const { title, text, color, link, img } = Astro.props;
 ---
 
-<Card color={color}>
-  <div slot="content" class="flex flex-col p-8 h-full">
-    <div class="prose prose-custom mb-10">
-      <h3>{title}</h3>
-      <p>{text}</p>
+<Card color={color} title={title}>
+  <div slot="content" class="flex flex-col h-full">
+    <div class="border-b-4 border-black-default">
+      <TwicPic img={img} />
     </div>
-    <div class="mt-auto">
-      <Link link={link} />
+    <div class="p-8">
+      <div class="prose prose-custom mb-10">
+        <h3>{title}</h3>
+        <p>{text}</p>
+      </div>
+      <div class="mt-auto">
+        <Link link={link} />
+      </div>
     </div>
   </div>
 </Card>

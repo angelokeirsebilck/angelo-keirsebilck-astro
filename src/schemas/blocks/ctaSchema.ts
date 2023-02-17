@@ -6,5 +6,6 @@ export const cta = z
     text: z.string(),
     uri: z.string(),
     linkLabel: z.string(),
+    noMT: z.boolean().default(false),
   })
   .optional();

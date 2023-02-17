@@ -1,13 +1,14 @@
 ---
+import type { TwicPicType } from "@customTypes/index";
+
 export interface Props {
-  ratio: string;
-  src: string;
+  img: TwicPicType;
 }
 
-const { src, ratio } = Astro.props;
+const { img } = Astro.props;
 ---
 
-<twic-img src={src} ratio={ratio}></twic-img>
+<twic-img src={img.src} ratio={img.ratio}></twic-img>
 
 <script>
   import { TwicImg } from "@twicpics/components/webcomponents";

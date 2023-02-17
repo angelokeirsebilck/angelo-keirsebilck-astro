@@ -2,22 +2,29 @@
 import Container from "@components/base/Container.astro";
 import TwicPic from "@components/base/TwicPic.astro";
 import TwicVideo from "@components/base/TwicVideo.astro";
-
-type TwicPicType = {
-  src: string;
-  ratio: string;
-};
+import type { TwicPicType } from "@customTypes/index";
 
 export interface Props {
   desktop: TwicPicType;
   tablet: TwicPicType;
   mobile: TwicPicType;
+  title: string;
 }
 
-const { desktop, tablet, mobile } = Astro.props;
+const { desktop, tablet, mobile, title } = Astro.props;
 ---
 
 <Container bgColor={"white"}>
+  {
+    title && (
+      <div class="container">
+        <div class="prose prose-custom max-w-none">
+          <h2 class="text-center">{title}</h2>
+        </div>
+      </div>
+    )
+  }
+
   <div class="default-grid pb-3">
     <div class="col-span-full row-start-1 lg:col-start-3 lg:col-span-14">
       <div
@@ -37,7 +44,12 @@ const { desktop, tablet, mobile } = Astro.props;
           desktop.src.includes("mp4") || desktop.src.includes("webm") ? (
             <TwicVideo ratio={desktop.ratio} src={desktop.src} />
           ) : (
-            <TwicPic ratio={desktop.ratio} src={desktop.src} />
+            <TwicPic
+              img={{
+                ratio: desktop.ratio,
+                src: desktop.src,
+              }}
+            />
           )
         }
       </div>
@@ -60,7 +72,12 @@ const { desktop, tablet, mobile } = Astro.props;
           mobile.src.includes("mp4") || mobile.src.includes("webm") ? (
             <TwicVideo ratio={mobile.ratio} src={mobile.src} />
           ) : (
-            <TwicPic ratio={mobile.ratio} src={mobile.src} />
+            <TwicPic
+              img={{
+                ratio: mobile.ratio,
+                src: mobile.src,
+              }}
+            />
           )
         }
       </div>
@@ -83,7 +100,12 @@ const { desktop, tablet, mobile } = Astro.props;
           tablet.src.includes("mp4") || tablet.src.includes("webm") ? (
             <TwicVideo ratio={tablet.ratio} src={tablet.src} />
           ) : (
-            <TwicPic ratio={tablet.ratio} src={tablet.src} />
+            <TwicPic
+              img={{
+                ratio: tablet.ratio,
+                src: tablet.src,
+              }}
+            />
           )
         }
       </div>
