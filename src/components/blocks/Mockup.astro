@@ -20,7 +20,9 @@ const { desktop, tablet, mobile } = Astro.props;
 <Container bgColor={"white"}>
   <div class="default-grid pb-3">
     <div class="col-span-full row-start-1 lg:col-start-3 lg:col-span-14">
-      <div class="rounded-20 border-4 border-black-default shadow-neo-4px">
+      <div
+        class="rounded-20 overflow-hidden border-4 border-black-default shadow-neo-4px"
+      >
         <div
           class="border-b-4 h-16 border-black-default flex pl-4 bg-gray-200 rounded-t-[18px] items-center gap-x-2"
         >
@@ -30,14 +32,18 @@ const { desktop, tablet, mobile } = Astro.props;
 
           <span class="font-bebas text-2xl inline ml-4">Desktop</span>
         </div>
-        <video autoplay loop muted class="rounded-b-[17px]">
-          <source src={desktop.src} type="video/mp4" />
-          Your browser does not support HTML video.
-        </video>
+
+        {
+          desktop.src.includes("mp4") || desktop.src.includes("webm") ? (
+            <TwicVideo ratio={desktop.ratio} src={desktop.src} />
+          ) : (
+            <TwicPic ratio={desktop.ratio} src={desktop.src} />
+          )
+        }
       </div>
     </div>
     <div
-      class="col-span-full lg:row-start-1 lg:col-start-15 lg:col-span-4 lg:mt-32"
+      class="col-span-2 lg:row-start-1 lg:col-start-15 lg:col-span-4 lg:mt-32 z-50"
     >
       <div
         class="rounded-20 border-4 overflow-hidden border-black-default shadow-neo-4px"
@@ -60,7 +66,7 @@ const { desktop, tablet, mobile } = Astro.props;
       </div>
     </div>
     <div
-      class="col-span-full lg:row-start-2 lg:col-start-1 lg:col-span-9 lg:-mt-48"
+      class="col-span-full lg:row-start-2 lg:col-start-1 lg:col-span-9 lg:-mt-48 z-50"
     >
       <div
         class="rounded-20 overflow-hidden border-4 border-black-default shadow-neo-4px"

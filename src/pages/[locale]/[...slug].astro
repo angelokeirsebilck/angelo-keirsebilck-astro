@@ -1,7 +1,7 @@
 ---
 import Layout from "src/layouts/Layout.astro";
 import { CollectionEntry, getCollection } from "astro:content";
-import Mockup from "@components/blocks/Mockup.astro";
+
 export async function getStaticPaths() {
   const pagesCollection = await getCollection("pages");
   const projectsCollection = await getCollection("projects");
