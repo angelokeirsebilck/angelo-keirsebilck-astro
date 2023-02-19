@@ -65,13 +65,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   staggetFromToParents.forEach((parent) => {
     useStaggerAnimationFromTo(parent as HTMLElement);
   });
-  import { installTwicPics, TwicImg } from "@twicpics/components/webcomponents";
+  import {
+    installTwicPics,
+    TwicImg,
+    TwicVideo,
+  } from "@twicpics/components/webcomponents";
   import "@twicpics/components/style.css";
 
   installTwicPics({
     domain: `https://angelokeirsebilck.twic.pics`,
     env: import.meta.env.PUBLIC_TWIC_PIC_ENV,
   });
-
+  customElements.define(`twic-video`, TwicVideo);
   customElements.define(`twic-img`, TwicImg);
 </script>
