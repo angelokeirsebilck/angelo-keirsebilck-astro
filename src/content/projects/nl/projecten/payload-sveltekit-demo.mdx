@@ -12,45 +12,42 @@ import love from "@assets/svg/love.svg";
 import Intro from "@components/blocks/Intro.astro";
 import TechLogos from "@components/ui/TechLogos.astro";
 
-    <Intro
-      link={{
-        label: "Bekijk de website",
-        uri: "https://payload-svelktekit-test-01.vercel.app/nl",
-        target: "_blank",
-        rel: "nofollow",
-        style: {
-          intent: "pink",
-          size: "medium",
-        },
-      }}
-    >
-      <div slot="text">
+<Intro
+  link={{
+    label: "Bekijk de website",
+    uri: "https://payload-svelktekit-test-01.vercel.app/nl",
+    target: "_blank",
+    rel: "nofollow",
+    style: {
+      intent: "pink",
+      size: "medium",
+    },
+  }}
+>
+  <div slot="text">
+      Kerotec is een bedrijf die al uw elektriciteitswerken in
+      West-Vlaanderen realiseert.
 
-          Kerotec is een bedrijf die al uw elektriciteitswerken in
-          West-Vlaanderen realiseert.
-
-
-          ze gaan aan de slag met de beste materialen, voeren uw werken uit
-          volgens een strikte planning, volgen de werken nauwgezet op én leveren
-          hoogkwalitatief werk.
-
-      </div>
-      <div slot="rightSide">
-        <div class="lg:grid grid-cols-9">
-          <div
-            class="col-start-3 col-span-7 relative flex flex-col justify-center"
-          >
-            <div class="inline-flex items-center text-2xl mb-4 relative">
-              <span> Made with</span>
-              <img src={love} alt="Heart illustration" class="mx-2" />
-              and
-              <img src={techArrow} alt="Arrow illustration" class="ml-2 transform translate-y-2" />
-            </div>
-            <div class="flex flex-wrap gap-6 [&_>_svg]:w-auto [&_>_svg]:h-12">
-              <TechLogos techName={"payloadcms"} />
-              <TechLogos techName={"sveltekit"} />
-            </div>
-          </div>
+      ze gaan aan de slag met de beste materialen, voeren uw werken uit
+      volgens een strikte planning, volgen de werken nauwgezet op én leveren
+      hoogkwalitatief werk.
+  </div>
+  <div slot="rightSide">
+    <div class="lg:grid grid-cols-9">
+      <div
+        class="col-start-3 col-span-7 relative flex flex-col justify-center"
+      >
+        <div class="inline-flex items-center text-2xl mb-4 relative">
+          <span> Made with</span>
+          <img src={love} alt="Heart illustration" class="mx-2" />
+          and
+          <img src={techArrow} alt="Arrow illustration" class="ml-2 transform translate-y-2" />
+        </div>
+        <div class="flex flex-wrap gap-6 [&_>_svg]:w-auto [&_>_svg]:h-12">
+          <TechLogos techName={"payloadcms"} />
+          <TechLogos techName={"sveltekit"} />
         </div>
       </div>
-    </Intro>
+    </div>
+  </div>
+</Intro>

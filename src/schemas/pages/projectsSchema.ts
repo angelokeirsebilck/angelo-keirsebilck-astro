@@ -4,7 +4,7 @@ import { techStack } from "../fields/techStack";
 
 export const projectSchema = z.object({
   title: z.string(),
-  uid: z.enum(["kerotec", "demo-payload-sveltekit"]),
+  uid: z.enum(["kerotec", "demo-payload-sveltekit", "ak-old"]),
   cta,
   thumbnailUrl: z.string(),
   thumbnailText: z.string(),
