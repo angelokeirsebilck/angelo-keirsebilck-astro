@@ -19,7 +19,6 @@ const { title, text, color, link, img } = Astro.props;
 <Card color={color} title={title}>
   <div slot="content" class="flex flex-col h-full">
     <div class="border-b-4 border-black-default">
-      {img.src}
       <TwicPic img={img} />
     </div>
     <div class="p-8 h-full flex flex-col">
