@@ -1,0 +1,35 @@
+---
+import { getEntryBySlug, getCollection, CollectionEntry } from "astro:content";
+
+export interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+
+const entry = (await getEntryBySlug("steps", slug)) as CollectionEntry<"steps">;
+
+const { Content } = await entry.render();
+---
+
+{
+  entry !== undefined && (
+    <div
+      class:list={[
+        "bg-white p-6 lg:p-10 border-black-default flex items-center flex-col border-4 after:-right-3 after:w-full rounded-20 z-20 neo-brutal-border prose prose-custom max-w-none",
+        ,
+        entry.data.borderColor,
+      ]}
+    >
+      <div class="max-w-2xl mx-auto text-center flex flex-col items-center">
+        <h3 class="text-4xl">
+          <span class="text-stroke-black-sm text-5xl inline-block transform -translate-y-[1px] mr-1">
+            {entry.slug.split("/")[1]}.
+          </span>
+          {entry.data.title}
+        </h3>
+        <Content />
+      </div>
+    </div>
+  )
+}

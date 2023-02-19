@@ -1,0 +1,91 @@
+---
+import { getCollection } from "astro:content";
+import type { BackgroundColor } from "@custom-types/index";
+import Container from "@components/base/Container.astro";
+import SwiperPrev from "@components/ui/swiper/SwiperPrev.astro";
+import SwiperNext from "@components/ui/swiper/SwiperNext.astro";
+import StepsItem from "./steps/StepsItem.astro";
+
+const url = Astro.url;
+const [, locale] = url.pathname.split("/");
+
+const steps = await getCollection("steps", (step) => {
+  const [pageLocale] = step.id.split("/");
+  if (pageLocale == locale) {
+    return step;
+  }
+});
+
+export interface Props {
+  bgColor: BackgroundColor;
+  text: string;
+}
+
+const { bgColor, text } = Astro.props;
+---
+
+<Container bgColor={bgColor}>
+  <slot name="blobs" />
+
+  <div class="default-grid pb-28 lg:pb-0">
+    <div class="col-span-full lg:col-span-5">
+      <div class="prose prose-custom max-w-none relative z-20">
+        <h2 class="">Stappenplan</h2>
+        <div class="">
+          {text}
+        </div>
+      </div>
+    </div>
+    <div class="col-span-full lg:col-start-7 lg:col-span-12 relative">
+      <div
+        class="absolute z-20 h-auto swiper-button-prev -bottom-24 left-1/2 -translate-x-[calc(50%_+_50px)] lg:bottom-[unset] lg:left-0 lg:top-1/2 lg:-translate-x-1/2 transform lg:-translate-y-1/2"
+      >
+        <SwiperPrev />
+      </div>
+      <div
+        class="absolute z-20 swiper-button-next -bottom-24 left-1/2 lg:left-[unset] lg:bottom-[unset] -translate-x-[calc(50%_-_50px)] lg:right-0 lg:top-1/2 transform lg:-translate-y-1/2 lg:translate-x-[25.5px]"
+      >
+        <SwiperNext />
+      </div>
+      <div
+        class="swiper-container overflow-hidden pb-4 pr-4 w-full js-testimonialSwiper"
+      >
+        <div class="swiper-wrapper">
+          {
+            steps.map((step) => {
+              return (
+                <div class="swiper-slide">
+                  <StepsItem slug={step.slug} />
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</Container>
+
+<script>
+  import Swiper, { Navigation, EffectFade } from "swiper";
+  import "swiper/css";
+  import "swiper/css/pagination";
+  import "swiper/css/effect-fade";
+
+  const swiper = new Swiper(".js-testimonialSwiper", {
+    modules: [Navigation, EffectFade],
+    slidesPerView: 1,
+    spaceBetween: 20,
+    grabCursor: true,
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true,
+    },
+    watchOverflow: true,
+    autoHeight: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>

@@ -1,0 +1,75 @@
+---
+import { CollectionEntry, getEntryBySlug } from "astro:content";
+
+import type { LinkType } from "@custom-types/ui";
+import type { techStack } from "@custom-types/index";
+
+import arrow from "@assets/svg/techstack-arrow.svg";
+
+import Link from "@components/ui/Link.astro";
+import Container from "@components/base/Container.astro";
+import TechLogos from "@components/ui/TechLogos.astro";
+
+export interface Props {
+  link?: LinkType;
+  slug: string;
+}
+
+const { link, slug } = Astro.props;
+
+const entry = (await getEntryBySlug(
+  "textTechStack",
+  slug
+)) as CollectionEntry<"textTechStack">;
+
+const { Content } = await entry.render();
+---
+
+<Container id={entry.slug.replace("/", "-")} bgColor={entry.data.bgColor}>
+  <slot name="blobs" />
+  <div class="default-grid relative z-10 js-staggerFromTo">
+    <div
+      class:list={[
+        "col-span-full lg:col-span-9 row-start-2 lg:row-start-1 js-staggerFromTo",
+        entry.data.textPos == "right" ? "lg:col-start-10" : "col-start-1",
+      ]}
+    >
+      <div class="prose prose-custom">
+        <Content />
+      </div>
+
+      {
+        link && (
+          <div class="mt-3 lg:mt-6 flex">
+            <Link link={link} />
+          </div>
+        )
+      }
+    </div>
+    <div
+      class:list={[
+        "col-span-full lg:col-span-8 row-start-1",
+        entry.data.textPos == "left" ? "lg:col-start-11" : "col-start-1",
+      ]}
+    >
+      <div class="relative prose prose-custom inline-block">
+        <img
+          src={arrow}
+          alt="Arrow down illustration"
+          class="absolute -bottom-16 -right-12 lg:-bottom-12 lg:-right-12 mb-0"
+        />
+        <h2 class="mt-0">{entry.data.title}</h2>
+      </div>
+
+      <div
+        class="flex flex-col items-start gap-3 [&_>_svg]:w-auto [&_>_svg]:h-12"
+      >
+        {
+          entry.data.techStack.map((tech: techStack) => {
+            return <TechLogos techName={tech} />;
+          })
+        }
+      </div>
+    </div>
+  </div>
+</Container>

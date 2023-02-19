@@ -1,14 +1,26 @@
 ---
+import { getCollection } from "astro:content";
+
 import type { BackgroundColor } from "@custom-types/index";
 import type { LinkType } from "@custom-types/ui";
 import Link from "@components/ui/Link.astro";
 import Container from "@components/base/Container.astro";
 import ProjectsItem from "./projects/ProjectsItem.astro";
 
+const url = Astro.url;
+const [, locale] = url.pathname.split("/");
+
 export interface Props {
   bgColor: BackgroundColor;
   projectsLink?: LinkType;
 }
+
+const projects = await getCollection("projects", (project) => {
+  const [pageLocale] = project.id.split("/");
+  if (pageLocale == locale && project.data.home) {
+    return project;
+  }
+});
 
 const { bgColor, projectsLink } = Astro.props;
 ---
@@ -33,43 +45,30 @@ const { bgColor, projectsLink } = Astro.props;
     </div>
     <div class="col-span-full lg:col-span-12 pb-2 lg:bp-0">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-8 pb-2">
-        <ProjectsItem
-          img={{
-            src: "https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fimages%2Fkerotec-home-3.jpg",
-            ratio: "1024:578",
-            alt: "Kerotec homepage landing",
-          }}
-          link={{
-            style: {
-              size: "small",
-              intent: "green",
-            },
-            uri: "/nl/kerotec/",
-            label: "Bekijk project",
-          }}
-          color={"pink"}
-          title="Kerotec"
-          text="Een recent project voor een lokale elektricien en zie hoe ik een professionele website heb ontwikkeld die bijdraagt aan hun online aanwezigheid en groei."
-        />
-
-        <ProjectsItem
-          img={{
-            src: "https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fimages%2Fpayloadcms-sveltekit-2.jpg",
-            ratio: "1024:578",
-            alt: "Payload CMS & SvelteKit demo landing",
-          }}
-          link={{
-            style: {
-              size: "small",
-              intent: "green",
-            },
-            uri: "/nl/payload-sveltekit-demo/",
-            label: "Bekijk project",
-          }}
-          color={"blue"}
-          title="Payload CMS & SvelteKit demo"
-          text="Project om te laten zien wat mogelijk is met Payload CMS en SvelteKit. SvelteKit zorgt voor zeer snelle laad tijden."
-        />
+        {
+          projects.map((project) => {
+            return (
+              <ProjectsItem
+                img={{
+                  src: project.data.thumbnailUrl,
+                  ratio: "1024:578",
+                  alt: `${project.data.title} Thumbnail`,
+                }}
+                link={{
+                  style: {
+                    size: "small",
+                    intent: "green",
+                  },
+                  uri: `/${project.slug}/`,
+                  label: "Bekijk project",
+                }}
+                color={"blue"}
+                title={project.data.title}
+                text={project.data.thumbnailText}
+              />
+            );
+          })
+        }
       </div>
       {
         projectsLink && (

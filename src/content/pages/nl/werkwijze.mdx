@@ -2,6 +2,33 @@
 title: "Werkwijze"
 uid: "method"
 menuOrder: 2
+cta:
+  {
+    title: "Klaar om samen te werken?",
+    text: "Vraag vrijblijvend een offerte aan of maak een afspraak voor een gesprek",
+    uri: "/nl/contact/",
+    linkLabel: "Afspraak maken",
+    noMT: true,
+  }
 ---
 
-Werkwijze pagina
+import Intro from "@components/blocks/Intro.astro";
+import Steps from "@components/blocks/Steps.astro";
+import TextTechStack from "@components/blocks/TextTechStack.astro";
+
+<Intro
+  
+>
+  <div slot="text">
+    Ik ontwikkel websites met een combinatie van een <a href="#nl-ssg" class="underline-a">Static Site Generator (SSG)</a> en een <a href="#nl-cms" class="underline-a">Content Management System (CMS)</a>. Samen bieden ze mij een krachtige en flexibele manier om websites te creëren en te beheren die snel en efficiënt zijn en gemakkelijk te gebruiken voor de eindgebruiker. 
+  </div>
+  <div slot="rightSide">
+
+  </div>
+</Intro>
+<Steps
+  bgColor={"white"}
+  text="We volgen een grondig stappenplan om tot een geslaagd eindresultaat te komen."
+/>
+ <TextTechStack slug="nl/ssg" /> 
+ <TextTechStack slug="nl/cms" />

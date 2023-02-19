@@ -25,7 +25,7 @@ export const defaultCustomerTemplateNL = (firstName: string) => {
                   <tr>
                     <td>
                       <p style="font-size:14px;line-height:24px;margin:16px 0;color:#121212;font-family:-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Roboto&#x27;, &#x27;Oxygen&#x27;, &#x27;Ubuntu&#x27;, &#x27;Cantarell&#x27;, &#x27;Fira Sans&#x27;, &#x27;Droid Sans&#x27;, &#x27;Helvetica Neue&#x27;, sans-serif;font-weight:400">Beste ${firstName},</p>
-                      <p style="font-size:14px;line-height:24px;margin:16px 0;color:#121212;font-family:-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Roboto&#x27;, &#x27;Oxygen&#x27;, &#x27;Ubuntu&#x27;, &#x27;Cantarell&#x27;, &#x27;Fira Sans&#x27;, &#x27;Droid Sans&#x27;, &#x27;Helvetica Neue&#x27;, sans-serif;font-weight:400;margin-bottom:0px">Bedankt voor je bericht, ik contacteer je spoedig.</p>
+                      <p style="font-size:14px;line-height:24px;margin:16px 0;color:#121212;font-family:-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, &#x27;Roboto&#x27;, &#x27;Oxygen&#x27;, &#x27;Ubuntu&#x27;, &#x27;Cantarell&#x27;, &#x27;Fira Sans&#x27;, &#x27;Droid Sans&#x27;, &#x27;Helvetica Neue&#x27;, sans-serif;font-weight:400;margin-bottom:0px">Bedankt voor jouw bericht, ik contacteer je spoedig.</p>
                     </td>
                   </tr>
                 </tbody>

@@ -1,0 +1,51 @@
+---
+import { getCollection } from "astro:content";
+
+import Container from "@components/base/Container.astro";
+import ProjectsItem from "./projects/ProjectsItem.astro";
+
+const url = Astro.url;
+const [, locale] = url.pathname.split("/");
+
+export interface Props {}
+
+const projects = await getCollection("projects", (project) => {
+  const [pageLocale] = project.id.split("/");
+  if (pageLocale == locale) {
+    return project;
+  }
+});
+
+const {} = Astro.props;
+---
+
+<Container bgColor={"white"} extraClasses={"!mt-0"}>
+  <div class="default-grid pb-3">
+    {
+      projects.map((project) => {
+        return (
+          <div class="col-span-full lg:col-span-6">
+            <ProjectsItem
+              img={{
+                src: project.data.thumbnailUrl,
+                ratio: "1024:578",
+                alt: `${project.data.title} Thumbnail`,
+              }}
+              link={{
+                style: {
+                  size: "small",
+                  intent: "green",
+                },
+                uri: `/${project.slug}/`,
+                label: "Bekijk project",
+              }}
+              color={"blue"}
+              title={project.data.title}
+              text={project.data.thumbnailText}
+            />
+          </div>
+        );
+      })
+    }
+  </div>
+</Container>

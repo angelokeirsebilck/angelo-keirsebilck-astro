@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
   h1,
   h2,
   h3,
@@ -80,6 +84,16 @@
 
   .neo-brutal-border {
     @apply after:absolute  after:w-[calc(100%_-_12px)] after:-z-10 after:h-full after:border-4 after:border-black-default after:rounded-inherit after:top-3 after:right-0;
+  }
+
+  .underline-a {
+    @apply no-underline bg-gradient-to-r font-normal from-green-default to-pink-default  bg-no-repeat bg-[left_bottom_3px] bg-[length:100%_4px];
+  }
+  .text-stroke-black-sm {
+    -webkit-text-stroke: 1px black;
+    color: white;
+    text-shadow: 2px 2px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000,
+      1px 1px 0 #000;
   }
 
   .text-stroke-black {

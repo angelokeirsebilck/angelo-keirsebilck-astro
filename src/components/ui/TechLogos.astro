@@ -1,13 +1,8 @@
 ---
+import type { techStack } from "@custom-types/index";
+
 export interface Props {
-  techName:
-    | "nextjs"
-    | "gsap"
-    | "craftcms"
-    | "tailwind"
-    | "sveltekit"
-    | "astro"
-    | "payloadcms";
+  techName: techStack;
 }
 
 const { techName } = Astro.props;

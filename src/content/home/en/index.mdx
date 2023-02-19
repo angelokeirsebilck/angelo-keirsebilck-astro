@@ -14,6 +14,7 @@ import TextMedia from "@components/blocks/TextMedia.astro";
 import USP from "@components/blocks/USP.astro";
 import Testiomonials from "@components/blocks/Testiomonials.astro";
 import Cta from "@components/blocks/Cta.astro";
+import ProjectsNL from "@components/blocks/ProjectsNL.astro";
 
 <HomeBanner>
   <h1
@@ -110,3 +111,14 @@ import Cta from "@components/blocks/Cta.astro";
     />
   </div>
 </Testiomonials>
+<ProjectsNL
+  bgColor={"white"}
+  projectsLink={{
+    label: "View all projects",
+    uri: "/en/projects/",
+    style: {
+      intent: "pink",
+      size: "medium",
+    },
+  }}
+/>
