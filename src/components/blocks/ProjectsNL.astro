@@ -17,7 +17,7 @@ export interface Props {
 
 const projects = await getCollection("projects", (project) => {
   const [pageLocale] = project.id.split("/");
-  if (pageLocale == locale && project.data.home) {
+  if (pageLocale == locale) {
     return project;
   }
 });

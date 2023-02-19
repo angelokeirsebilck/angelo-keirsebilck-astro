@@ -7,16 +7,12 @@ import ProjectsItem from "@components/blocks/projects/ProjectsItem.astro";
 const url = Astro.url;
 const [, locale] = url.pathname.split("/");
 
-export interface Props {}
-
 const projects = await getCollection("projects", (project) => {
   const [pageLocale] = project.id.split("/");
   if (pageLocale == locale) {
     return project;
   }
 });
-
-const {} = Astro.props;
 ---
 
 <Container bgColor={"white"} extraClasses={"!mt-0"}>
