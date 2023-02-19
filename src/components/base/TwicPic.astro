@@ -8,16 +8,9 @@ export interface Props {
 const { img } = Astro.props;
 ---
 
-<twic-img {...img}></twic-img>
+<twic-img src={img.src} ratio={img.ratio} alt={img?.alt}></twic-img>
 
 <script>
-  import { useStaggerAnimationFromTo } from "@utils/useStaggerAnimationFromTo";
-  const staggetFromToParents = document.querySelectorAll(
-    ".js-staggerFromTo"
-  ) as NodeList;
-  staggetFromToParents.forEach((parent) => {
-    useStaggerAnimationFromTo(parent as HTMLElement);
-  });
   import { TwicImg } from "@twicpics/components/webcomponents";
 
   customElements.define(`twic-img`, TwicImg);
