@@ -8,4 +8,5 @@ export interface Props {
 const { img } = Astro.props;
 ---
 
+{JSON.stringify({ ...img }, null, 2)}
 <twic-img {...img}></twic-img>
