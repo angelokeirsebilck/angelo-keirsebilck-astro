@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 
 import Container from "@components/base/Container.astro";
-import ProjectsItem from "./projects/ProjectsItem.astro";
+import ProjectsItem from "@components/blocks/projects/ProjectsItem.astro";
 
 const url = Astro.url;
 const [, locale] = url.pathname.split("/");
