@@ -2,6 +2,7 @@
 import Nav from "@components/nav/Nav.astro";
 import logo from "@assets/svg/angelo-keirsebilck-web-dev-black.svg";
 import LangSwitcher from "@components/nav/LangSwitcher.astro";
+import TwicPic from "@components/base/TwicPic.astro";
 
 const url = Astro.url;
 const [, locale] = url.pathname.split("/");
@@ -10,13 +11,20 @@ const [, locale] = url.pathname.split("/");
 <header class="bg-white relative z-10">
   <div class="container py-6">
     <div class="flex justify-between items-center">
-      <a href={`/${locale}/`} rel="prefetch">
-        <img
+      <a href={`/${locale}/`} rel="prefetch" class="block w-[257px]">
+        <TwicPic
+          img={{
+            ratio: "257:69",
+            src: "https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fimages%2Fangelo-keirsebilck.png",
+          }}
+        />
+
+        <!-- <img
           src={logo}
           alt="Angelo Keirsebilck Web Development Logo"
           width="257"
           height="69"
-        />
+        /> -->
       </a>
       <div class="flex gap-x-16 items-center">
         <Nav />
