@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 
 import Container from "@components/base/Container.astro";
 import ProjectsItem from "@components/blocks/projects/ProjectsItem.astro";
+import TwicPic from "@components/base/TwicPic.astro";
 
 const url = Astro.url;
 const [, locale] = url.pathname.split("/");
@@ -16,6 +17,12 @@ const projects = await getCollection("projects", (project) => {
 ---
 
 <Container bgColor={"white"} extraClasses={"!mt-0"}>
+  <TwicPic
+    img={{
+      src: "https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fimages%2Fak-old-home.jpg",
+      ratio: "none",
+    }}
+  />
   <div class="default-grid pb-3">
     {
       projects.map((project) => {

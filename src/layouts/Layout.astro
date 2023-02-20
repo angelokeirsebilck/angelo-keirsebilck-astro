@@ -35,6 +35,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     class="font-poppins text-base flex flex-col min-h-screen text-black-default"
   >
     <Header />
+
     <slot />
     {
       cta && (
