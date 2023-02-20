@@ -8,3 +8,10 @@ export type LinkType = {
   target?: string;
   rel?: string;
 };
+
+export type TwicPicType = {
+  src: string;
+  ratio: string;
+  alt?: string;
+  class?: string;
+};
