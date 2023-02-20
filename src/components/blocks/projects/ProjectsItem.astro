@@ -19,6 +19,12 @@ const { title, text, color, link, img } = Astro.props;
 <Card color={color} title={title}>
   <div slot="content" class="flex flex-col h-full">
     <div class="border-b-4 border-black-default">
+      <TwicPic
+        img={{
+          src: "https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fimages%2Fak-old-home.jpg",
+          ratio: "1024:578",
+        }}
+      />
       <TwicPic img={img} />
     </div>
     <div class="p-8 h-full flex flex-col">
