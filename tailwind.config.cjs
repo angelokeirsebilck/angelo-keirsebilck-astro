@@ -92,6 +92,12 @@ module.exports = {
         20: "20px",
         inherit: "inherit",
       },
+      extend: {
+        translate: {
+          "2/5": "40%",
+          "1/5": "20%",
+        },
+      },
     },
   },
   plugins: [

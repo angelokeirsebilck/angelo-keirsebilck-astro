@@ -16,6 +16,8 @@ export interface Props {
     noMT: boolean;
   };
 }
+const url = Astro.url;
+const [, locale] = url.pathname.split("/");
 
 const { title, cta } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -35,7 +37,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <body
     class="font-poppins text-base flex flex-col min-h-screen text-black-default"
   >
-    <NavMobile client:load />
+    <NavMobile locale={locale} client:load />
     <Header />
 
     <slot />

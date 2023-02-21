@@ -21,6 +21,32 @@
   .h6 {
     @apply mt-[1.2em] mb-[0.7em] first:mt-0;
   }
+
+  /* width */
+  ::-webkit-scrollbar {
+    @apply w-4 rounded-20;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    @apply bg-white;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-green-default rounded-lg;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-blue-default;
+  }
+
+  body:has(.navOpen)::-webkit-scrollbar,
+  body:has(.navOpen)::-webkit-scrollbar-track,
+  body:has(.navOpen)::-webkit-scrollbar-thumb {
+    @apply !opacity-0 bg-transparent;
+  }
 }
 
 @layer components {
