@@ -27,7 +27,7 @@ const projects = await getCollection("projects", (project) => {
     {
       projects.map((project) => {
         return (
-          <div class="col-span-full lg:col-span-6">
+          <div class="col-span-full lg:col-span-9 xl:col-span-6">
             <ProjectsItem
               img={{
                 src: project.data.thumbnailUrl,

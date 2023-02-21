@@ -2,7 +2,7 @@ import { loadEnv } from "vite";
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
-// import svelte from "@astrojs/svelte";
+import svelte from "@astrojs/svelte";
 import vercel from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
 import prefetch from "@astrojs/prefetch";
@@ -18,6 +18,7 @@ export default defineConfig({
     tailwind(),
     prefetch(),
     mdx(),
+    svelte(),
     sitemap({
       filter: (page) => !page.includes("thanks") && !page.includes("bedankt"),
       i18n: {

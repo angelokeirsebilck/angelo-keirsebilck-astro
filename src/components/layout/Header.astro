@@ -2,6 +2,7 @@
 import Nav from "@components/nav/Nav.astro";
 import logo from "@assets/svg/angelo-keirsebilck-web-dev-black.svg";
 import LangSwitcher from "@components/nav/LangSwitcher.astro";
+import Hamburger from "@components/nav/Hamburger.svelte";
 
 const url = Astro.url;
 const [, locale] = url.pathname.split("/");
@@ -19,6 +20,7 @@ const [, locale] = url.pathname.split("/");
         />
       </a>
       <div class="flex gap-x-16 items-center">
+        <Hamburger client:load />
         <Nav />
         <!-- <LangSwitcher /> -->
       </div>

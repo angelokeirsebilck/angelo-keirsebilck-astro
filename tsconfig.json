@@ -10,7 +10,8 @@
       "@utils/*": ["src/utils/*"],
       "@custom-types/*": ["src/custom-types/*"],
       "@email/*": ["src/email/*"],
-      "@customTypes/*": ["src/customTypes/*"]
+      "@customTypes/*": ["src/customTypes/*"],
+      "@stores/*": ["src/stores/*"]
     },
     "jsx": "preserve"
   }
