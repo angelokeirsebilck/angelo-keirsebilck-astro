@@ -9,7 +9,7 @@ export interface Props {}
 const {} = Astro.props;
 ---
 
-<Container bgColor={"white"}>
+<Container bgColor={"white"} extraClasses={"!mt-0"}>
   <div class="default-grid">
     <div class="col-span-full lg:col-span-12">
       <ContactForm locale={locale} client:visible />
