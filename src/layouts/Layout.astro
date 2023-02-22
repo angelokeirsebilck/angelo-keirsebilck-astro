@@ -5,6 +5,7 @@ import Header from "@components/layout/Header.astro";
 import Footer from "@components/layout/Footer.astro";
 import Cta from "@components/blocks/Cta.astro";
 import NavMobile from "@components/nav/NavMobile.svelte";
+import { getCollection } from "astro:content";
 
 export interface Props {
   title: string;
@@ -21,6 +22,17 @@ const [, locale] = url.pathname.split("/");
 
 const { title, cta } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const allPages = await getCollection("pages", (page) => {
+  const [pageLocale] = page.id.split("/");
+  if (pageLocale == locale && page.data.sitemap) {
+    return page;
+  }
+});
+
+const sortedPages = allPages.sort(
+  (a, b) => a.data.menuOrder - b.data.menuOrder
+);
 ---
 
 <!DOCTYPE html>
@@ -37,7 +49,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <body
     class="font-poppins text-base flex flex-col min-h-screen text-black-default"
   >
-    <NavMobile locale={locale} client:load />
+    <NavMobile navList={sortedPages} locale={locale} client:load />
     <Header />
 
     <slot />
