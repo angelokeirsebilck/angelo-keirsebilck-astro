@@ -1,0 +1,78 @@
+---
+import logo from "@assets/svg/angelo-keirsebilck-web-dev-black.svg";
+import cross from "@assets/svg/cross.svg";
+import Socials from "@components/base/Socials.astro";
+import { getCollection } from "astro:content";
+
+const url = Astro.url;
+const [, locale] = url.pathname.split("/");
+
+const allPages = await getCollection("pages", (page) => {
+  const [pageLocale] = page.id.split("/");
+  if (pageLocale == locale && page.data.sitemap) {
+    return page;
+  }
+});
+
+const sortedPages = allPages.sort(
+  (a, b) => a.data.menuOrder - b.data.menuOrder
+);
+---
+
+<nav
+  class="js-mobileNav h-100 w-full flex justify-between flex-col fixed inset-0 bg-white z-[9999] opacity-0 pointer-events-none transition-all duration-300 ease-in-out [&.navOpen]:opacity-100 [&.navOpen]:pointer-events-auto"
+>
+  <div class="container">
+    <div class="py-6">
+      <div class="flex justify-between items-center">
+        <a href={`/${locale}/`} rel="prefetch" class="block w-40 lg:w-[257px]">
+          <img
+            src={logo}
+            alt="Angelo Keirsebilck Web Development Logo"
+            width="257"
+            height="69"
+          />
+        </a>
+        <button
+          aria-label="Close menu"
+          class="lg:hover:rotate-90 transition-all duration-300 js-cross"
+        >
+          <img src={cross} alt="Cross illustration" />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <ul class="flex items-center gap-y-4 flex-col">
+      {
+        sortedPages.map((page) => {
+          return (
+            <li>
+              <a
+                href={`/${page.slug}/`}
+                rel="prefetch"
+                class="font-bebas tracking-widest text-4xl"
+              >
+                {page.data.title}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+  <div class="container mb-16">
+    <div class="flex gap-x-10 justify-center">
+      <Socials />
+    </div>
+  </div>
+</nav>
+
+<script>
+  const cross = document.querySelector(".js-cross");
+  if (cross) {
+    cross.addEventListener("click", () => {
+      document.querySelector(".js-mobileNav")?.classList.toggle("navOpen");
+    });
+  }
+</script>
