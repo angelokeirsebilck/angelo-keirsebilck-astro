@@ -37,34 +37,33 @@ import TwicPic from "@components/base/TwicPic.astro";
     },
   }}
 >
-  <div slot="text">
-
+  <div slot="text" class="text-xl prose prose-custom">
       Kerotec is een bedrijf die al uw elektriciteitswerken in
       West-Vlaanderen realiseert.
-
 
       ze gaan aan de slag met de beste materialen, voeren uw werken uit
       volgens een strikte planning, volgen de werken nauwgezet op én leveren
       hoogkwalitatief werk.
-
   </div>
-  <div slot="rightSide">
-    <div class="lg:grid grid-cols-9">
-      <div
-        class="col-start-3 col-span-7 relative flex flex-col justify-center"
-      >
-        <div class="inline-flex items-center text-2xl mb-4 relative">
-          <span> Made with</span>
-          <img src={love} alt="Heart illustration" class="mx-2" />
-          and
-          <img src={techArrow} alt="Arrow illustration" class="ml-2 transform translate-y-2" />
-        </div>
-        <div class="flex flex-wrap gap-6 [&_>_svg]:w-auto [&_>_svg]:h-12">
-          <TechLogos techName={"nextjs"} />
-          <TechLogos techName={"craftcms"} />
+  <div slot="rightSide"  class="col-span-full lg:col-start-10 lg:col-span-8">
+    <div class="col-span-full lg:col-span-9">
+      <div class="lg:grid grid-cols-9">
+          <div
+            class="col-start-3 col-span-7 relative flex flex-col justify-center"
+          >
+            <div class="inline-flex items-center text-2xl mb-4 relative">
+              <span class="whitespace-nowrap"> Made with</span>
+              <img src={love} alt="Heart illustration" class="mx-2" />
+              and
+              <img src={techArrow} alt="Arrow illustration" class="ml-2 transform translate-y-2" />
+            </div>
+            <div class="flex flex-wrap gap-4 [&_>_svg]:w-auto [&_>_svg]:h-12">
+              <TechLogos techName={"nextjs"} />
+              <TechLogos techName={"craftcms"} />
+            </div>
+          </div>
         </div>
       </div>
-    </div>
   </div>
 </Intro>
 

@@ -11,22 +11,19 @@ const { link } = Astro.props;
 ---
 
 <Container bgColor={"white"} firstBlock={true}>
-  <div class="default-grid pb-3">
+  <div class="default-grid">
     <div class="col-span-full lg:col-span-9">
-      <div class="text-xl prose prose-custom">
-        <slot name="text" />
-      </div>
+      <slot name="text" />
 
       {
         link && (
-          <div class="mt-3 lg:mt-6 flex">
+          <div class="mt-6 flex pb-3">
             <Link link={link} />
           </div>
         )
       }
     </div>
-    <div class="col-span-full lg:col-span-9">
-      <slot name="rightSide" />
-    </div>
+
+    <slot name="rightSide" />
   </div>
 </Container>

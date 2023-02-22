@@ -32,18 +32,18 @@ import TechLogos from "@components/ui/TechLogos.astro";
       volgens een strikte planning, volgen de werken nauwgezet op én leveren
       hoogkwalitatief werk.
   </div>
-  <div slot="rightSide">
+  <div slot="rightSide" class="col-span-full lg:col-start-11 lg:col-span-8">
     <div class="lg:grid grid-cols-9">
       <div
         class="col-start-3 col-span-7 relative flex flex-col justify-center"
       >
         <div class="inline-flex items-center text-2xl mb-4 relative">
-          <span> Made with</span>
+          <span class="whitespace-nowrap"> Made with</span>
           <img src={love} alt="Heart illustration" class="mx-2" />
           and
           <img src={techArrow} alt="Arrow illustration" class="ml-2 transform translate-y-2" />
         </div>
-        <div class="flex flex-wrap gap-6 [&_>_svg]:w-auto [&_>_svg]:h-12">
+        <div class="flex flex-wrap gap-4 [&_>_svg]:w-auto [&_>_svg]:h-12">
           <TechLogos techName={"payloadcms"} />
           <TechLogos techName={"sveltekit"} />
         </div>

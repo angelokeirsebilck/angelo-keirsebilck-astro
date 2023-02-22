@@ -49,6 +49,12 @@ const sortedPages = allPages.sort(
   <body
     class="font-poppins text-base flex flex-col min-h-screen text-black-default"
   >
+    <div class="invisible h-0 pointer-events-auto lg:hidden"></div>
+    {
+      sortedPages.map((page) => {
+        return <a href={`/${page.slug}/`} rel="prefetch" class=""></a>;
+      })
+    }
     <NavMobile navList={sortedPages} locale={locale} client:load />
     <Header />
 
