@@ -31,7 +31,7 @@ export default (app: App) => {
         classes: generateClasses({
           global: {
             // applies to all input types
-            messages: "list-none p-0 mt-1 mb-4",
+            messages: "list-none p-0 mt-1",
             message: "text-error-default mb-1 text-sm",
             inner:
               "focus:shadow-none focus:outline-0 focus:ring-0 focus:ring-offset-0",
