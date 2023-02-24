@@ -23,6 +23,7 @@
     "@formkit/vue": "^1.0.0-beta.15",
     "@twicpics/components": "^0.15.1",
     "astro": "^2.0.4",
+    "astro-seo": "^0.7.1",
     "class-variance-authority": "^0.4.0",
     "flowbite": "^1.6.3",
     "gsap": "^3.11.4",

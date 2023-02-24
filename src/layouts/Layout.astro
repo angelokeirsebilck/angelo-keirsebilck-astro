@@ -4,9 +4,9 @@ import "@css/app.css";
 import Header from "@components/layout/Header.astro";
 import Footer from "@components/layout/Footer.astro";
 import Cta from "@components/blocks/Cta.astro";
-// import NavMobile from "@components/nav/NavMobile.svelte";
 import NavMobile from "@components/nav/NavMobile.astro";
-import { getCollection } from "astro:content";
+import { SEO } from "astro-seo";
+import type { SeoContent } from "@custom-types/index";
 
 export interface Props {
   title: string;
@@ -17,9 +17,10 @@ export interface Props {
     linkLabel: string;
     noMT: boolean;
   };
+  seoContent: SeoContent;
 }
 
-const { title, cta } = Astro.props;
+const { title, cta, seoContent } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -28,11 +29,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="robots" content="noindex, nofollow" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="canonical" href={canonicalURL} />
-    <title>{title}</title>
+    <SEO
+      titleTemplate={"%s — Angelo Keirsebilck"}
+      title={seoContent?.title ?? title}
+      openGraph={{
+        basic: {
+          title: seoContent.og.title,
+          image: seoContent.og.image,
+          type: "website",
+        },
+      }}
+      description={seoContent?.description}
+      noindex={import.meta.env.LIVE == 0}
+      nofollow={import.meta.env.LIVE == 0}
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body
     class="font-poppins text-base flex flex-col min-h-screen text-black-default"
@@ -61,28 +73,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
 
     <Footer ctaActive={cta !== undefined} />
+    <script>
+      import { useStaggerAnimationFromTo } from "@utils/useStaggerAnimationFromTo";
+      const staggetFromToParents = document.querySelectorAll(
+        ".js-staggerFromTo"
+      ) as NodeList;
+      staggetFromToParents.forEach((parent) => {
+        useStaggerAnimationFromTo(parent as HTMLElement);
+      });
+      import {
+        installTwicPics,
+        TwicImg,
+        TwicVideo,
+      } from "@twicpics/components/webcomponents";
+      import "@twicpics/components/style.css";
+
+      installTwicPics({
+        domain: `https://angelokeirsebilck.twic.pics`,
+        env: import.meta.env.PUBLIC_TWIC_PIC_ENV,
+      });
+      customElements.define(`twic-video`, TwicVideo);
+      // customElements.define(`twic-img`, TwicImg);
+    </script>
   </body>
 </html>
-
-<script>
-  import { useStaggerAnimationFromTo } from "@utils/useStaggerAnimationFromTo";
-  const staggetFromToParents = document.querySelectorAll(
-    ".js-staggerFromTo"
-  ) as NodeList;
-  staggetFromToParents.forEach((parent) => {
-    useStaggerAnimationFromTo(parent as HTMLElement);
-  });
-  import {
-    installTwicPics,
-    TwicImg,
-    TwicVideo,
-  } from "@twicpics/components/webcomponents";
-  import "@twicpics/components/style.css";
-
-  installTwicPics({
-    domain: `https://angelokeirsebilck.twic.pics`,
-    env: import.meta.env.PUBLIC_TWIC_PIC_ENV,
-  });
-  customElements.define(`twic-video`, TwicVideo);
-  // customElements.define(`twic-img`, TwicImg);
-</script>

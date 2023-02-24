@@ -1,5 +1,12 @@
 ---
 title: "Kerotec"
+seoContent: {
+description: "SEO Bechrijving Kerotec",
+og: {
+ image: 'https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fimages%2Fhome-og-image.jpg',
+ title: "Web development op maat"
+}
+}
 techStack: ["nextjs", "craftcms"]
 uid: "kerotec"
 thumbnailUrl: 'https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fimages%2Fkerotec-home-new.jpg'
@@ -44,6 +51,7 @@ import TwicPic from "@components/base/TwicPic.astro";
       ze gaan aan de slag met de beste materialen, voeren uw werken uit
       volgens een strikte planning, volgen de werken nauwgezet op én leveren
       hoogkwalitatief werk.
+
   </div>
   <div slot="rightSide"  class="col-span-full lg:col-start-10 lg:col-span-8">
     <div class="col-span-full lg:col-span-9">
@@ -69,24 +77,23 @@ import TwicPic from "@components/base/TwicPic.astro";
 
 <TextMedia bgColor={"blue"} textPos={"left"}>
   <div slot="blobs">
-      <img
+    <img
       src={blobWhite1}
       class="absolute -bottom-20 -left-[20%] lg:left-[30%]"
       width="378"
       height="200"
-      alt="Random Blog" 
-    /></div>
+      alt="Random Blog"
+    />
+  </div>
   <h2 slot="title" class="mt-0">
     <span>Diensten goed in de kijker</span>
   </h2>
   <div slot="text" class="prose prose-custom">
     Als professionele elektricien biedt Kerotec een breed scala aan diensten
-    aan, waaronder verlichting, renovatie en nieuwbouw, domotica en parlo-
-    en videofonie. 
-    
-    Kerotec is gespecialiseerd in het bieden van oplossingen
-    op maat voor elke specifieke situatie, en heeft de kennis en ervaring om
-    projecten van elke grootte aan te kunnen.
+    aan, waaronder verlichting, renovatie en nieuwbouw, domotica en parlo- en
+    videofonie. Kerotec is gespecialiseerd in het bieden van oplossingen op maat
+    voor elke specifieke situatie, en heeft de kennis en ervaring om projecten
+    van elke grootte aan te kunnen.
   </div>
   <div
     class="border-4 overflow-hidden rounded-20 border-black-default"
@@ -95,14 +102,14 @@ import TwicPic from "@components/base/TwicPic.astro";
     <TwicPic
       img={{
         ratio: "1809:1009",
-        src: "https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fimages%2Fkerotec-diensten.png"
-      }}     
+        src: "https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fimages%2Fkerotec-diensten.png",
+      }}
     />
   </div>
 </TextMedia>
 
 <Mockup
-  title="Responsief Design" 
+  title="Responsief Design"
   desktop={{
     src: "https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fvideos%2Fkerotec.mp4",
     ratio: "1140:600",
