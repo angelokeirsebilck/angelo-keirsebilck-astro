@@ -5,6 +5,7 @@ import Socials from "@components/base/Socials.astro";
 import { getCollection } from "astro:content";
 
 const url = Astro.url;
+const pathname = url.pathname;
 const [, locale] = url.pathname.split("/");
 
 const allPages = await getCollection("pages", (page) => {
@@ -20,7 +21,7 @@ const sortedPages = allPages.sort(
 ---
 
 <nav
-  class="js-mobileNav h-100 w-full flex justify-between flex-col fixed inset-0 bg-white z-[9999] opacity-0 pointer-events-none transition-all duration-300 ease-in-out [&.navOpen]:opacity-100 [&.navOpen]:pointer-events-auto"
+  class="js-mobileNav h-100 w-full flex justify-between flex-col fixed inset-0 bg-white z-[9999] opacity-0 pointer-events-none group transition-all duration-300 ease-in-out [&.navOpen]:opacity-100 [&.navOpen]:pointer-events-auto"
 >
   <div class="container">
     <div class="py-6">
@@ -43,15 +44,19 @@ const sortedPages = allPages.sort(
     </div>
   </div>
   <div class="container">
-    <ul class="flex items-center gap-y-4 flex-col">
+    <ul class="flex items-center gap-y-6 flex-col">
       {
-        sortedPages.map((page) => {
+        sortedPages.map((page, index) => {
           return (
             <li>
               <a
                 href={`/${page.slug}/`}
                 rel="prefetch"
-                class="font-bebas tracking-widest text-4xl"
+                class:list={[
+                  pathname == `/${page.slug}/` ? "text-green-default" : "",
+                  "font-bebas tracking-widest text-4xl opacity-0 transition-opacity duration-1000",
+                  "js-navMobileLink",
+                ]}
               >
                 {page.data.title}
               </a>
@@ -62,17 +67,29 @@ const sortedPages = allPages.sort(
     </ul>
   </div>
   <div class="container mb-16">
-    <div class="flex gap-x-10 justify-center">
+    <div class="flex gap-x-10 justify-center js-mobileSocials [&_a]:opacity-0">
       <Socials />
     </div>
   </div>
 </nav>
 
 <script>
+  import { gsap } from "gsap";
+  const mobileNavLinks = gsap.utils.toArray(".js-navMobileLink");
+  const socialLinksParent = document.querySelector(".js-mobileSocials");
+  let socialLinks: [];
+  if (socialLinksParent) {
+    socialLinks = gsap.utils.toArray("a", socialLinksParent) as [];
+  }
+
   const cross = document.querySelector(".js-cross");
   if (cross) {
     cross.addEventListener("click", () => {
       document.querySelector(".js-mobileNav")?.classList.toggle("navOpen");
+      gsap.set(mobileNavLinks, { opacity: 0, duration: 0 });
+      if (socialLinks) {
+        gsap.set(socialLinks, { opacity: 0, duration: 0 });
+      }
     });
   }
 </script>

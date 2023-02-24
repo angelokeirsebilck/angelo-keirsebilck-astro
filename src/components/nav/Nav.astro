@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 
 const url = Astro.url;
+const pathname = url.pathname;
 const [, locale] = url.pathname.split("/");
 
 const allPages = await getCollection("pages", (page) => {
@@ -19,13 +20,33 @@ const sortedPages = allPages.sort(
 <nav class="hidden lg:block">
   <ul class="flex gap-x-8">
     {
-      sortedPages.map((page) => {
+      sortedPages.map((page, index) => {
+        if (index < sortedPages.length - 1) {
+          return (
+            <li>
+              <a
+                href={`/${page.slug}/`}
+                rel="prefetch"
+                class:list={[
+                  pathname == `/${page.slug}/` ? "text-green-default" : "",
+                  "font-bebas tracking-widest text-xl duration-300 transition-colors hover:text-green-default",
+                ]}
+              >
+                {page.data.title}
+              </a>
+            </li>
+          );
+        }
+
         return (
           <li>
             <a
               href={`/${page.slug}/`}
               rel="prefetch"
-              class="font-bebas tracking-widest text-xl"
+              class:list={[
+                pathname == `/${page.slug}/` ? "!text-white" : "",
+                "btn btn-small btn-green",
+              ]}
             >
               {page.data.title}
             </a>

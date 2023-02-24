@@ -6,7 +6,13 @@ module.exports = {
     "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
     "./node_modules/flowbite/**/*.js",
   ],
-  safelist: ["swiper-button-disabled", "swiper-button-lock"],
+  safelist: [
+    "swiper-button-disabled",
+    "swiper-button-lock",
+    {
+      pattern: /delay/,
+    },
+  ],
   theme: {
     fontFamily: {
       bebas: ["Bebas Neue", "Bebas Neue Fallback", "sans-serif"],

@@ -20,10 +20,30 @@
 </button>
 
 <script>
+  import { gsap } from "gsap";
+  const mobileNavLinks = gsap.utils.toArray(".js-navMobileLink");
+  const socialLinksParent = document.querySelector(".js-mobileSocials");
+  let socialLinks: [];
+  if (socialLinksParent) {
+    socialLinks = gsap.utils.toArray("a", socialLinksParent) as [];
+  }
+
   const hamburger = document.querySelector(".js-hamburger");
   if (hamburger) {
     hamburger.addEventListener("click", () => {
       document.querySelector(".js-mobileNav")?.classList.toggle("navOpen");
+      const tl = gsap.timeline();
+
+      tl.to(mobileNavLinks, {
+        opacity: 1,
+        duration: 0.2,
+        stagger: 0.1,
+      })
+      .to(socialLinks, {
+        opacity: 1,
+        duration: 0.2,
+        stagger: 0.1,
+      });
     });
   }
 </script>
