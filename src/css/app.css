@@ -59,7 +59,7 @@
   }
 
   .btn {
-    @apply border-3 tracking-widest border-black-default text-center font-bebas shadow-neo-4px rounded-md lg:hover:shadow-neo-4px-hover transition-all duration-150;
+    @apply border-3 tracking-widest border-black-default text-center font-bebas shadow-neo-4px rounded-md lg:hover:shadow-neo-4px-hover transition-[box-shadow] duration-150;
   }
 
   .btn-medium {

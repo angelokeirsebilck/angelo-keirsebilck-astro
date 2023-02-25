@@ -39,6 +39,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           image: seoContent.og.image,
           type: "website",
         },
+        image: {
+          alt: `Screenshot van ${title} page`,
+          height: 600,
+          width: 1200,
+        },
       }}
       description={seoContent?.description}
       noindex={import.meta.env.LIVE == 0}
