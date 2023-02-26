@@ -42,7 +42,7 @@ const { desktop, tablet, mobile, title } = Astro.props;
 
         {
           desktop.src.includes("mp4") || desktop.src.includes("webm") ? (
-            <TwicVideo ratio={desktop.ratio} src={desktop.src} />
+            <TwicVideo video={desktop} />
           ) : (
             <TwicPic
               img={{
@@ -70,7 +70,7 @@ const { desktop, tablet, mobile, title } = Astro.props;
         </div>
         {
           mobile.src.includes("mp4") || mobile.src.includes("webm") ? (
-            <TwicVideo ratio={mobile.ratio} src={mobile.src} />
+            <TwicVideo video={mobile} />
           ) : (
             <TwicPic
               img={{
@@ -98,7 +98,7 @@ const { desktop, tablet, mobile, title } = Astro.props;
         </div>
         {
           tablet.src.includes("mp4") || tablet.src.includes("webm") ? (
-            <TwicVideo ratio={tablet.ratio} src={tablet.src} />
+            <TwicVideo video={tablet} />
           ) : (
             <TwicPic
               img={{

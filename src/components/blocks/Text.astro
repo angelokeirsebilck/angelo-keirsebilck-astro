@@ -1,0 +1,38 @@
+---
+import { CollectionEntry, getEntryBySlug } from "astro:content";
+import Container from "@components/base/Container.astro";
+import Link from "@components/ui/Link.astro";
+import type { BackgroundColor } from "@custom-types/index";
+import type { LinkType } from "@custom-types/ui";
+
+export interface Props {
+  bgColor: BackgroundColor;
+  link?: LinkType;
+  slug: string;
+}
+
+const { bgColor, link, slug } = Astro.props;
+console.log(slug);
+const entry = (await getEntryBySlug("text", slug)) as CollectionEntry<"text">;
+
+const { Content } = await entry.render();
+---
+
+<Container bgColor={bgColor}>
+  <slot name="blobs" />
+  <div class="default-grid relative z-10 js-staggerFromTo">
+    <div class="col-span-full lg:col-start-5 lg:col-span-10">
+      <div class="prose prose-custom max-w-none">
+        <h2>{entry.data.title}</h2>
+        <Content />
+      </div>
+      {
+        link && (
+          <div class="mt-3 lg:mt-6 flex">
+            <Link link={link} />
+          </div>
+        )
+      }
+    </div>
+  </div>
+</Container>

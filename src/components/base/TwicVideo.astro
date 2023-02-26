@@ -1,10 +1,11 @@
 ---
+import type { TwicVideoType } from "@custom-types/ui";
+
 export interface Props {
-  ratio: string;
-  src: string;
+  video: TwicVideoType;
 }
 
-const { src, ratio } = Astro.props;
+const { video } = Astro.props;
 ---
 
-<twic-video src={src} ratio={ratio}></twic-video>
+<twic-video {...video}></twic-video>

@@ -15,3 +15,5 @@ export type TwicPicType = {
   alt?: string;
   class?: string;
 };
+
+export type TwicVideoType = Omit<TwicPicType, "alt">;
