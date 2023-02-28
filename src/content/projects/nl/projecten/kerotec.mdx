@@ -1,16 +1,17 @@
 ---
 title: "Kerotec"
 seoContent: {
-description: "SEO Bechrijving Kerotec",
+description: "Kerotec is een bedrijf die al uw elektriciteitswerken in West-Vlaanderen realiseert.",
 og: {
- image: 'https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fimages%2Fhome-og-image.jpg',
- title: "Web development op maat"
+ image: 'https://angelokeirsebilck.twic.pics/ak-astro/images/kerotec-og-image-1.png?twic=v1/output=jpeg/resize=1200',
+ title: "Kerotec"
 }
 }
+order: 1
 techStack: ["nextjs", "craftcms"]
 uid: "kerotec"
-thumbnailUrl: 'https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fimages%2Fkerotec-home-new.jpg'
-thumbnailText: 'Een recent project voor een lokale elektricien. Ontdek hoe ik een professionele website heb ontwikkeld die bijdraagt aan hun online aanwezigheid en groei.'
+thumbnailUrl: 'ak-astro%2Fimages%2Fkerotec-home-new.jpg'
+thumbnailText: 'Ontdek hoe ik een professionele website heb ontwikkeld voor een lokale elektricien die bijdraagt aan hun online aanwezigheid en groei.'
 home: true
 cta:
   {
@@ -20,12 +21,12 @@ cta:
     linkLabel: "Afspraak maken",
     noMT: true
   }
+
 ---
 
 import techArrow from "@assets/svg/tech-arrow2.svg";
 import love from "@assets/svg/love.svg";
 import blobWhite1 from "@assets/svg/blob-white-1.svg";
-
 import Intro from "@components/blocks/Intro.astro";
 import TechLogos from "@components/ui/TechLogos.astro";
 import Mockup from "@components/blocks/Mockup.astro";
@@ -96,13 +97,13 @@ import TwicPic from "@components/base/TwicPic.astro";
     van elke grootte aan te kunnen.
   </div>
   <div
-    class="border-4 overflow-hidden rounded-20 border-black-default"
+    class="border-4 overflow-hidden rounded-20 border-black-default shadow-neo-4px"
     slot="image"
   >
     <TwicPic
       img={{
         ratio: "1809:1009",
-        src: "https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fimages%2Fkerotec-diensten.png",
+        src: "ak-astro%2Fimages%2Fkerotec-diensten.png",
       }}
     />
   </div>
@@ -111,15 +112,15 @@ import TwicPic from "@components/base/TwicPic.astro";
 <Mockup
   title="Responsief Design"
   desktop={{
-    src: "https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fvideos%2Fkerotec.mp4",
+    src: "video/kerotec.mp4",
     ratio: "1140:600",
   }}
   tablet={{
-    src: "https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fvideos%2Fkerotec-tablet-v3.mp4",
+    src: "video/kerotec-tablet-v3.mp4",
     ratio: "1368:912",
   }}
   mobile={{
-    src: "https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fimages%2Fkerotec-static-v3.png",
+    src: "ak-astro%2Fimages%2Fkerotec-static-v3.png",
     ratio: "537:946",
   }}
 />

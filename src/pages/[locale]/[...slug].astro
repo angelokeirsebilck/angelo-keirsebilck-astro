@@ -1,11 +1,6 @@
 ---
 import Layout from "src/layouts/Layout.astro";
 import { CollectionEntry, getCollection } from "astro:content";
-import TextMedia from "@components/blocks/TextMedia.astro";
-import TwicPic from "@components/base/TwicPic.astro";
-import Projects from "@components/blocks/Projects.astro";
-import Steps from "@components/blocks/Steps.astro";
-import TextTechStack from "@components/blocks/TextTechStack.astro";
 
 export async function getStaticPaths() {
   const pagesCollection = await getCollection("pages");
@@ -45,7 +40,7 @@ export const prerender = true;
 
 <Layout title={entry.data.title} cta={cta} seoContent={entry.data.seoContent}>
   <main>
-    <div class="container mt-6">
+    <div class="container mt-12">
       <h1
         class="font-bebas text-5xl lg:text-7xl tracking-wider text-stroke-black"
       >

@@ -35,12 +35,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       title={seoContent?.title ?? title}
       openGraph={{
         basic: {
-          title: seoContent.og.title,
-          image: seoContent.og.image,
+          title: `${seoContent?.og.title} — Angelo Keirsebilck`,
+          image: seoContent?.og.image,
           type: "website",
         },
+        optional: {
+          description: seoContent?.description,
+        },
         image: {
-          alt: `Screenshot van ${title} page`,
+          alt: `${title}`,
           height: 600,
           width: 1200,
         },
@@ -58,7 +61,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- <NavMobile navList={sortedPages} locale={locale} client:load /> -->
     <NavMobile />
     <Header />
-
     <slot />
     {
       cta && (
@@ -99,7 +101,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         env: import.meta.env.PUBLIC_TWIC_PIC_ENV,
       });
       customElements.define(`twic-video`, TwicVideo);
-      // customElements.define(`twic-img`, TwicImg);
+      customElements.define(`twic-img`, TwicImg);
     </script>
   </body>
 </html>

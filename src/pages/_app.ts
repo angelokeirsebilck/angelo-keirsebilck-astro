@@ -40,7 +40,7 @@ export default (app: App) => {
               "block mb-1 text-lg font-medium formkit-invalid:text-error-default",
           },
           submit: {
-            input: "btn btn-medium btn-pink w-fit",
+            input: "btn btn-medium btn-pink w-fit mt-4",
           },
           customDropdown: {
             ...defaultClasses.defaultInputs,

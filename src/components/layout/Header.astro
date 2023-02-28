@@ -8,7 +8,7 @@ const url = Astro.url;
 const [, locale] = url.pathname.split("/");
 ---
 
-<header class="bg-white relative z-10">
+<header class="bg-transparent relative z-10 border-b-3 border-black-default">
   <div class="container py-6">
     <div class="flex justify-between items-center">
       <a href={`/${locale}/`} rel="prefetch" class="block w-40 lg:w-[257px]">

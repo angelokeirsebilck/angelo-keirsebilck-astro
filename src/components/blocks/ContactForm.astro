@@ -1,6 +1,8 @@
 ---
 import Container from "@components/base/Container.astro";
 import ContactForm from "@components/forms/ContactForm.vue";
+import blobBlue from "@assets/svg/blob-blue-1.svg";
+import pinkBlue from "@assets/svg/blob-pink-2.svg";
 
 const url = Astro.url;
 const [, locale] = url.pathname.split("/");
@@ -9,10 +11,49 @@ export interface Props {}
 const {} = Astro.props;
 ---
 
-<Container bgColor={"white"} extraClasses={"!mt-0"}>
-  <div class="default-grid">
-    <div class="col-span-full lg:col-span-12">
-      <ContactForm locale={locale} client:visible />
+<div class="relative overflow-x-hidden">
+  <img
+    src={pinkBlue}
+    class="absolute -right-[18%] lg:-right-[8%] -bottom-[4%]"
+    width="378"
+    height="200"
+    alt="Random Blob"
+  />
+  <img
+    src={blobBlue}
+    class="absolute left-[20%] -bottom-[30%]"
+    width="323"
+    height="327"
+    alt="Random Blob"
+  />
+  <Container bgColor={"transparent"} extraClasses={"!mt-0"}>
+    <div class="default-grid relative z-50">
+      <div class="col-span-full lg:col-span-12">
+        <ContactForm locale={locale} client:visible />
+      </div>
+      <div class="col-span-full lg:col-start-14 lg:col-span-5">
+        <div class="flex mb-2">
+          <span class="font-bold text-green-default inline-block mr-2">E</span>
+          <a
+            href="mailto:info@angelokeirsebilck.be"
+            class="inline-block transition-colors duration-300 hover:text-green-default"
+            >info@angelokeirsebilck.be</a
+          >
+        </div>
+        <div class="flex mb-2">
+          <span class="font-bold text-green-default inline-block mr-2">T</span>
+          <a
+            href="tel:+32472494296"
+            class="inline-block transition-colors duration-300 hover:text-green-default"
+            >+32 472 49 42 96</a
+          >
+        </div>
+        <div class="flex mb-2">
+          <span class="font-bold text-green-default inline-block mr-2">BTW</span
+          >
+          <span class="">BE 000.000.000</span>
+        </div>
+      </div>
     </div>
-  </div>
-</Container>
+  </Container>
+</div>

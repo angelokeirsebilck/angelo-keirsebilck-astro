@@ -1,6 +1,7 @@
 ---
 import type { BackgroundColor } from "@custom-types/index";
 import { useGetBgColor } from "@utils/useGetBackgroundColor";
+import { useGetBorder } from "@utils/useGetBorder";
 import { useGetSpacing } from "@utils/useGetSpacing";
 
 export interface Props {
@@ -18,7 +19,7 @@ const { bgColor, firstBlock, extraClasses, id } = Astro.props;
   class:list={[
     useGetBgColor(bgColor),
     useGetSpacing(bgColor, firstBlock),
-    bgColor !== "white" ? "border-y-3 border-black-default" : "",
+    useGetBorder(bgColor),
     "overflow-hidden relative ",
     extraClasses,
   ]}

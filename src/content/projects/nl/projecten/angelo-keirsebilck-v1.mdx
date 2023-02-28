@@ -1,14 +1,124 @@
 ---
 title: "Vorige website"
 seoContent: {
-description: "SEO Bechrijving Vorgie websitet",
+description: "Vorige persoonlijke website. Ontwikkeld met enkel Craft CMS (front-end en back-end)",
 og: {
- image: 'https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fimages%2Fhome-og-image.jpg',
- title: "Web development op maat"
+ image: 'https://angelokeirsebilck.twic.pics/ak-astro/images/old-portfolio-og-image-1.png?twic=v1/output=jpeg/resize=1200',
+ title: "Oude persoonlijke website"
 }
 }
 techStack: ["craftcms"]
 uid: "ak-old"
-thumbnailUrl: "https://angelokeirsebilck.ams3.cdn.digitaloceanspaces.com/ak-astro%2Fimages%2Fak-old-home.jpg"
-thumbnailText: "Dit was mijn vorige website."
+thumbnailUrl: "ak-astro%2Fimages%2Fak-old-home.jpg"
+thumbnailText: "Vorige persoonlijke website. Ontwikkeld met enkel Craft CMS (front-end en back-end)."
+cta:
+  {
+    title: "Klaar om samen te werken?",
+    text: "Vraag vrijblijvend een offerte aan of maak een afspraak voor een gesprek",
+    uri: "/nl/contact/",
+    linkLabel: "Afspraak maken",
+    noMT: true
+  }
 ---
+
+import blobWhite1 from "@assets/svg/blob-white-1.svg";
+import techArrow from "@assets/svg/tech-arrow2.svg";
+import love from "@assets/svg/love.svg";
+import Mockup from "@components/blocks/Mockup.astro";
+import Intro from "@components/blocks/Intro.astro";
+import TechLogos from "@components/ui/TechLogos.astro";
+import TextMedia from "@components/blocks/TextMedia.astro";
+import TwicPic from "@components/base/TwicPic.astro";
+
+<Intro
+  link={{
+    label: "Bekijk de website",
+    uri: "https://staging.angelokeirsebilck.be/",
+    target: "_blank",
+    rel: "nofollow",
+    style: {
+      intent: "pink",
+      size: "medium",
+    },
+  }}
+>
+  <div slot="text" class="text-xl prose prose-custom">
+      Dit was mijn vorige persoonlijke website. Deze website werd volledig gebouwd met **Craft CMS**. Dit krachtige contentmanagementsysteem biedt namelijk een uitgebreide set aan functionaliteiten en flexibiliteit om zowel de **front-end als de back-end** van de website te ontwikkelen.
+
+  </div>
+  <div slot="rightSide"  class="col-span-full lg:col-start-10 lg:col-span-8">
+    <div class="col-span-full lg:col-span-9">
+      <div class="lg:grid grid-cols-9">
+          <div
+            class="col-start-3 col-span-7 relative flex flex-col justify-center"
+          >
+            <div class="inline-flex items-center text-2xl mb-4 relative">
+              <span class="whitespace-nowrap"> Made with</span>
+              <img src={love} alt="Heart illustration" class="mx-2" />
+              and
+              <img src={techArrow} alt="Arrow illustration" class="ml-2 transform translate-y-2" />
+            </div>
+            <div class="flex flex-wrap gap-4 [&_>_svg]:w-auto [&_>_svg]:h-12">
+              <TechLogos techName={"craftcms"} />
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</Intro>
+
+<TextMedia bgColor={"blue"} textPos={"left"}>
+  <div slot="blobs">
+    <img
+      src={blobWhite1}
+      class="absolute -bottom-20 -left-[20%] lg:left-[30%]"
+      width="378"
+      height="200"
+      alt="Random Blog"
+    />
+  </div>
+  <h2 slot="title" class="mt-0">
+    <span>Gebruikte plugins</span>
+  </h2>
+  <div slot="text" class="prose prose-custom">
+    <h3>Blitz</h3>
+    Blitz biedt intelligente statische pagina caching voor het maken van **bliksemsnelle
+    sites** met Craft CMS. Het verbetert de prestaties van een site aanzienlijk door
+    de reactietijd van de server te verkorten.
+    <h3>SEOmatic</h3>
+    Met SEOmatic kunt u snel een website opzetten met een **robuuste, uitgebreide
+    SEO-strategie**. Het is ook op een ambachtelijke manier geïmplementeerd, in die
+    zin dat het ook flexibel en aanpasbaar is.
+    <h3>Formie</h3>
+    Formie is een Craft CMS plugin voor het maken van **gebruiksvriendelijke formulieren**
+    waar uw content editors dol op zullen zijn. Met meer dan 25 beschikbare velden,
+    een drag-and-drop form builder, multi-page ondersteuning, en meer!
+  </div>
+  <div
+    class="border-4 overflow-hidden rounded-20 border-black-default shadow-neo-4px"
+    slot="image"
+  >
+    <TwicPic
+      img={{
+        ratio: "1809:1009",
+        src: "ak-astro%2Fimages%2Fak-old-blitz.jpg",
+      }}
+    />
+  </div>
+</TextMedia>
+
+<Mockup
+  title="Responsief Design"
+  desktop={{
+    src: "video/ak-old-desktop-home.mp4",
+    ratio: "1140:600",
+  }}
+  tablet={{
+    src: "ak-astro%2Fimages%2Fak-old-tablet-aanpak.jpg",
+    ratio: "1368:912",
+  }}
+  mobile={{
+    src: "video/ak-old-mobile-home.mp4",
+    ratio: "537:946",
+  }}
+/>

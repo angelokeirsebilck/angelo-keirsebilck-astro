@@ -10,6 +10,8 @@ export const useGetBgColor = (bgColor: BackgroundColor) => {
       return "bg-green-default";
     case "black":
       return "bg-black-default";
+    case "transparent":
+      return "bg-transparent";
     default:
       return "bg-white";
   }

@@ -14,6 +14,8 @@ const projects = await getCollection("projects", (project) => {
     return project;
   }
 });
+
+const sortedPages = projects.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <Container bgColor={"white"} extraClasses={"!mt-0"}>

@@ -1,9 +1,11 @@
 ---
 import Link from "@components/ui/Link.astro";
 import arrowPointer from "@assets/svg/arrow-1.svg";
-import lines from "@assets/svg/lines-homebanner.svg";
+import star from "@assets/svg/star-outline.svg";
 import face from "@assets/svg/face.svg";
 import blob1 from "@assets/svg/blob-pink-1.svg";
+import lineRight1 from "@assets/svg/line-right-1.svg";
+import lineLeft1 from "@assets/svg/line-left-1.svg";
 
 export interface Props {
   uri: string;
@@ -13,16 +15,29 @@ export interface Props {
 const { uri, label } = Astro.props;
 ---
 
-<!-- <img
-  src={lines}
-  class="absolute -left-0 w-screen top-0 transform"
-  alt="Lines"
-/> -->
 <div class="relative overflow-hidden">
   <img
+    src={lineLeft1}
+    class="absolute -z-20 -top-[3%] xl:-left-[18%] 2xl:-left-[10%] hidden xl:block"
+    alt="Star illustration"
+  />
+  <img
+    src={star}
+    class="absolute hidden lg:block top-[40%] left-[20%]"
+    alt="Star illustration"
+  />
+  <img
+    src={lineRight1}
+    class="absolute -bottom-[3%] -right-[3%] hidden xl:block"
+    alt="Star illustration"
+  />
+
+  <img
     src={face}
-    class="absolute bottom-10 hidden lg:block right-[20%]"
-    alt="Lines"
+    class="absolute bottom-[35%] hidden xl:block right-[15%]"
+    alt="Face illustration"
+    width="130"
+    height="130"
   />
   <img
     src={blob1}
@@ -32,7 +47,7 @@ const { uri, label } = Astro.props;
     alt="Pointing arrow"
   />
   <div
-    class="container flex overflow-hidden flex-col items-center max-w-4xl justify-center text-center py-16 lg:pb-48"
+    class="container flex overflow-hidden flex-col items-center max-w-4xl justify-center text-center py-24 lg:py-28 lg:pb-48"
   >
     <slot name="title" />
 
@@ -43,6 +58,8 @@ const { uri, label } = Astro.props;
         src={arrowPointer}
         class="absolute hidden md:block -left-32 md:-left-36 top-12 transform -rotate-[45deg]"
         alt="Pointing arrow"
+        width="130"
+        height="130"
       />
       <Link
         link={{

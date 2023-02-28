@@ -4,7 +4,7 @@ export const useGetSpacing = (
   bgColor: BackgroundColor,
   firstBlock: boolean = false
 ) => {
-  if (bgColor == "white") {
+  if (bgColor == "white" || bgColor == "transparent") {
     if (firstBlock) return "mb-16 lg:mb-32 mt-10";
     return "my-16 lg:my-32";
   } else {
