@@ -9,16 +9,16 @@ const [, locale] = url.pathname.split("/");
 ---
 
 <header
-  class="bg-transparent border-b-3 fixed top-0 left-0 right-0 bg-white z-50 group/header border-black-default fix transform will-change-transform transition-transform duration-300 ease-in-out [&.headroom--not-top]:-translate-y-full [&.headroom--pinned]:translate-y-0"
+  class="bg-transparent border-b-3 fixed top-0 left-0 right-0 bg-white z-[5000] group/header border-black-default fix transform will-change-transform transition-transform duration-300 ease-in-out [&.headroom--not-top]:-translate-y-full [&.headroom--pinned]:translate-y-0"
 >
   <div
-    class="container group-[&.headroom--not-top]/header:py-3 py-6 duration-300 transition-all ease-in-out"
+    class="container group-[&.headroom--not-top]/header:py-3 py-6 duration-300 transition-[padding] ease-in-out"
   >
     <div class="flex justify-between items-center">
       <a
         href={`/${locale}/`}
         rel="prefetch"
-        class="block w-40 lg:w-[257px] group-[&.headroom--not-top]/header:w-40 transition-all duration-300 ease-in-out"
+        class="block w-40 lg:w-[257px] group-[&.headroom--not-top]/header:w-40 transition-[width] duration-300 ease-in-out"
       >
         <img
           src={logo}

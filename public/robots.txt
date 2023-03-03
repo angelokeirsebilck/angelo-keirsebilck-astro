@@ -1,0 +1,6 @@
+Sitemap: https://www.angelokeirsebilck.be/sitemap-index.xml
+
+User-agent: *
+Disallow: /cpresources/
+Disallow: /vendor/
+Disallow: /.env
