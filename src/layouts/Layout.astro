@@ -59,15 +59,26 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
+    {
+      import.meta.env.LIVE == 1 && (
+        <script
+          src="https://cdn.usefathom.com/script.js"
+          data-site="YIWLFNPK"
+          defer
+        />
+      )
+    }
   </head>
 
   <body
     class="font-poppins text-base flex flex-col min-h-screen text-black-default"
   >
-    <!-- <NavMobile navList={sortedPages} locale={locale} client:load /> -->
     <NavMobile />
     <Header />
-    <slot />
+    <div class="mt-[117px]">
+      <slot />
+    </div>
+
     {
       cta && (
         <Cta

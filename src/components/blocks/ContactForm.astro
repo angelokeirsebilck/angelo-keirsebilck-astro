@@ -11,7 +11,7 @@ export interface Props {}
 const {} = Astro.props;
 ---
 
-<div class="relative overflow-x-hidden">
+<div class="relative overflow-hidden">
   <img
     src={pinkBlue}
     class="absolute -right-[18%] lg:-right-[8%] -bottom-[4%]"
@@ -31,7 +31,7 @@ const {} = Astro.props;
       <div class="col-span-full lg:col-span-12">
         <ContactForm locale={locale} client:visible />
       </div>
-      <div class="col-span-full lg:col-start-14 lg:col-span-5">
+      <div class="col-span-full lg:col-start-14 lg:col-span-4">
         <div class="flex mb-2">
           <span class="font-bold text-green-default inline-block mr-2">E</span>
           <a
