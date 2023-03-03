@@ -4,9 +4,20 @@ import Container from "@components/base/Container.astro";
 import Layout from "src/layouts/Layout.astro";
 ---
 
-<Layout title="No page found">
+<Layout
+  title="No page found"
+  seoContent={{
+    description:
+      "Ik ontwikkel en design websites volledig op maat die bij de zoekmachines en op elk apparaat goed scoren.",
+    og: {
+      image:
+        "https://angelokeirsebilck.twic.pics/ak-astro/images/home-og-image-1.png?twic=v1/output=jpeg/resize=1200",
+      title: "Web development op maat",
+    },
+  }}
+>
   <div class="container">
     <img src={illu404} alt="" />
-    <a href="/">Home</a>
+    <a href="/nl/">Home</a>
   </div>
 </Layout>
