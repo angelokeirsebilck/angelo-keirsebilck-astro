@@ -18,9 +18,10 @@ export interface Props {
     noMT: boolean;
   };
   seoContent: SeoContent;
+  errorPage?: boolean;
 }
 
-const { title, cta, seoContent } = Astro.props;
+const { title, cta, seoContent, errorPage } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -49,8 +50,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         },
       }}
       description={seoContent?.description}
-      noindex={import.meta.env.LIVE == 0}
-      nofollow={import.meta.env.LIVE == 0}
+      noindex={import.meta.env.LIVE == 0 || errorPage}
+      nofollow={import.meta.env.LIVE == 0 || errorPage}
     />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

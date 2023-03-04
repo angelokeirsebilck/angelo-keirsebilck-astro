@@ -1,11 +1,13 @@
 ---
 import illu404 from "@assets/svg/404.svg";
 import Container from "@components/base/Container.astro";
+import Link from "@components/ui/Link.astro";
 import Layout from "src/layouts/Layout.astro";
 ---
 
 <Layout
   title="No page found"
+  errorPage={true}
   seoContent={{
     description:
       "Ik ontwikkel en design websites volledig op maat die bij de zoekmachines en op elk apparaat goed scoren.",
@@ -16,8 +18,42 @@ import Layout from "src/layouts/Layout.astro";
     },
   }}
 >
-  <div class="container">
-    <img src={illu404} alt="" />
-    <a href="/nl/">Home</a>
-  </div>
+  <Container bgColor={"white"}>
+    <div class="default-grid">
+      <div class="col-span-full lg:col-span-9 mx-auto">
+        <img
+          src={illu404}
+          width="501"
+          height="501"
+          alt="404 Error illustration"
+        />
+      </div>
+      <div class="col-span-full lg:col-span-9 self-center">
+        <h1
+          class="font-bebas text-5xl lg:text-7xl tracking-wider text-stroke-black mb-6"
+        >
+          Pagina niet gevonden
+        </h1>
+        <div class="prose prose-custom">
+          <p>
+            Oeps! Het lijkt erop dat deze pagina niet meer bestaat. Maar maak je
+            geen zorgen, er is genoeg andere geweldige inhoud om te ontdekken!
+          </p>
+        </div>
+
+        <div class="flex mt-8">
+          <Link
+            link={{
+              label: "Ga naar home",
+              uri: "/nl",
+              style: {
+                intent: "pink",
+                size: "medium",
+              },
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  </Container>
 </Layout>
