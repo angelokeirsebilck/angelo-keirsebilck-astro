@@ -25,11 +25,11 @@ const sortedPages = projects.sort((a, b) => a.data.order - b.data.order);
       ratio: "none",
     }}
   />
-  <div class="default-grid pb-3">
+  <div class="default-grid pb-3 js-staggerFromTo">
     {
       projects.map((project) => {
         return (
-          <div class="col-span-full lg:col-span-9 xl:col-span-6">
+          <div class="col-span-full lg:col-span-9 xl:col-span-6 ">
             <ProjectsItem
               img={{
                 src: project.data.thumbnailUrl,

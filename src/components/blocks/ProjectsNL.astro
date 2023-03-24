@@ -27,7 +27,7 @@ const { bgColor, projectsLink } = Astro.props;
 
 <Container bgColor={bgColor}>
   <div class="default-grid">
-    <div class="col-span-full lg:col-span-6">
+    <div class="col-span-full lg:col-span-6 js-staggerFromTo">
       <div class="prose prose-custom max-w-none">
         <h2 class="">Enkele projecten</h2>
         <p>
@@ -44,7 +44,9 @@ const { bgColor, projectsLink } = Astro.props;
       }
     </div>
     <div class="col-span-full lg:col-span-12 pb-2 lg:bp-0">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-8 pb-2">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-8 pb-2 js-staggerFromTo"
+      >
         {
           projects.map((project) => {
             return (
