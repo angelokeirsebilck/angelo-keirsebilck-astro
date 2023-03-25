@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { FormKitNode, FormKitTypeDefinition } from "@formkit/core";
 import { FormKitSchema } from "@formkit/vue";
 import { inject } from "vue";
 const props = defineProps<{
@@ -6,6 +7,31 @@ const props = defineProps<{
 }>();
 const config = inject(Symbol.for("FormKitConfig"));
 config.locale = props.locale;
+
+const spinningSubmitDefinition: FormKitTypeDefinition = {
+  type: "input",
+  schema: [
+    {
+      $cmp: "FormKit",
+      bind: "$submitAttrs",
+      props: {
+        ignore: true,
+        type: "submit",
+        disabled: "$disabled",
+        label: "$submitLabel",
+      },
+    },
+  ],
+};
+
+const customInputs = () => {};
+
+// Then we attach a library
+customInputs.library = (node: FormKitNode) => {
+  if (node.props.type === "spinningSubmit") {
+    node.define(spinningSubmitDefinition);
+  }
+};
 
 const contactSchema = [
   {
@@ -54,6 +80,10 @@ const contactSchema = [
     label: props.locale == "nl" ? "Bericht" : "Message",
     validation: "required",
   },
+  {
+    $formkit: "spinningSubmit",
+    label: "Versturen",
+  },
 ];
 
 const submitHandler = async (fields: FormData) => {
@@ -75,7 +105,12 @@ const submitHandler = async (fields: FormData) => {
 
 <template>
   <div class="pb-3">
-    <FormKit type="form" @submit="submitHandler">
+    <FormKit
+      type="form"
+      :plugins="[customInputs]"
+      :actions="false"
+      @submit="submitHandler"
+    >
       <FormKitSchema :schema="contactSchema" />
     </FormKit>
   </div>

@@ -40,7 +40,8 @@ export default (app: App) => {
               "block mb-1 text-lg font-medium formkit-invalid:text-error-default",
           },
           submit: {
-            input: "btn btn-medium btn-pink w-fit mt-4",
+            input:
+              "btn btn-medium flex items-center gap-x-2 btn-pink w-fit mt-4 formkit-disabled:bg-gray-400 formkit-loading:before:block formkit-loading:before:w-4 formkit-loading:before:h-4 formkit-loading:before:mr-2 formkit-loading:before:border formkit-loading:before:border-2 formkit-loading:before:border-r-transparent formkit-loading:before:rounded-3xl formkit-loading:before:border-white formkit-loading:before:animate-spin",
           },
           customDropdown: {
             ...defaultClasses.defaultInputs,
