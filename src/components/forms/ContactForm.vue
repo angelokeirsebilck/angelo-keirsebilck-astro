@@ -24,6 +24,40 @@ const spinningSubmitDefinition: FormKitTypeDefinition = {
   ],
 };
 
+function scrollToErrors(node: FormKitNode) {
+  if (node.props.type === "form") {
+    function scrollTo(node: FormKitNode) {
+      if (node.props.id) {
+        const el = document.getElementById(node.props.id);
+        if (el) {
+          el.scrollIntoView();
+        }
+      }
+    }
+
+    function scrollToErrors() {
+      node.walk((child) => {
+        // Check if this child has errors
+        if (child.ledger.value("blocking") || child.ledger.value("errors")) {
+          // We found an input with validation errors
+          scrollTo(child);
+          // Stop searching
+          return false;
+        }
+      }, true);
+    }
+
+    const onSubmitInvalid = node.props.onSubmitInvalid;
+    node.props.onSubmitInvalid = () => {
+      onSubmitInvalid(node);
+      console.log(node);
+      scrollToErrors();
+    };
+    node.on("unsettled:errors", scrollToErrors);
+  }
+  return false;
+}
+
 const customInputs = () => {};
 
 // Then we attach a library
@@ -107,7 +141,7 @@ const submitHandler = async (fields: FormData) => {
   <div class="pb-3">
     <FormKit
       type="form"
-      :plugins="[customInputs]"
+      :plugins="[customInputs, scrollToErrors]"
       :actions="false"
       @submit="submitHandler"
     >
