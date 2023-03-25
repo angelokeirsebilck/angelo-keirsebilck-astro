@@ -46,16 +46,14 @@ export const post: APIRoute = async ({ request, redirect }) => {
 
       return new Response(
         JSON.stringify({
-          message:
-            "Something went wrong while sending the e-mail confirmation.",
+          message: "Er ging iets mis bij het versturen van het formulier.",
         }),
         { status: 400 }
       );
     } catch (error) {
       return new Response(
         JSON.stringify({
-          message:
-            "Something went wrong while sending the e-mail confirmation.",
+          message: "Er ging iets mis bij het versturen van het formulier.",
         }),
         {
           status: 400,
@@ -65,7 +63,7 @@ export const post: APIRoute = async ({ request, redirect }) => {
   }
   return new Response(
     JSON.stringify({
-      message: "Something went wrong while sending the e-mail confirmation.",
+      message: "Er ging iets mis bij het versturen van het formulier",
     }),
     { status: 400 }
   );

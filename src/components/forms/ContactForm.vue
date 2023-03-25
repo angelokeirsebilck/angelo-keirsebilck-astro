@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import type { FormKitNode, FormKitTypeDefinition } from "@formkit/core";
+import type {
+  FormKitGroupValue,
+  FormKitNode,
+  FormKitTypeDefinition,
+} from "@formkit/core";
 import { FormKitSchema } from "@formkit/vue";
 import { inject } from "vue";
 const props = defineProps<{
@@ -50,7 +54,6 @@ function scrollToErrors(node: FormKitNode) {
     const onSubmitInvalid = node.props.onSubmitInvalid;
     node.props.onSubmitInvalid = () => {
       onSubmitInvalid(node);
-      console.log(node);
       scrollToErrors();
     };
     node.on("unsettled:errors", scrollToErrors);
@@ -120,7 +123,7 @@ const contactSchema = [
   },
 ];
 
-const submitHandler = async (fields: FormData) => {
+const submitHandler = async (fields: FormKitGroupValue, node: FormKitNode) => {
   const res = await fetch("/api/submitForm.json", {
     method: "POST",
     headers: {
@@ -134,6 +137,14 @@ const submitHandler = async (fields: FormData) => {
     const data = await res.json();
     window.location.href = data.redirectUrl;
   }
+  if (res.status == 400) {
+    const data = await res.json();
+    node.setErrors("contactForm", [data.message]);
+  }
+};
+
+const submitRawHandler = (event: Event, node: FormKitNode) => {
+  node.clearErrors();
 };
 </script>
 
@@ -141,9 +152,11 @@ const submitHandler = async (fields: FormData) => {
   <div class="pb-3">
     <FormKit
       type="form"
+      id="contactForm"
       :plugins="[customInputs, scrollToErrors]"
       :actions="false"
       @submit="submitHandler"
+      @submit-raw="submitRawHandler"
     >
       <FormKitSchema :schema="contactSchema" />
     </FormKit>
