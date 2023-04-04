@@ -29,7 +29,7 @@ const { bgColor, text, title } = Astro.props;
   <slot name="blobs" />
 
   <div
-    class="default-grid pb-28 lg:pb-0 opacity-0 js-parent transition-opacity duration-300 js-staggerFromTo"
+    class="default-grid pb-16 lg:pb-0 opacity-0 js-parent transition-opacity duration-300 js-staggerFromTo"
   >
     <div class="col-span-full lg:col-span-5">
       <div class="prose prose-custom max-w-none relative z-20">
@@ -41,12 +41,12 @@ const { bgColor, text, title } = Astro.props;
     </div>
     <div class="col-span-full lg:col-start-7 lg:col-span-12 relative">
       <div
-        class="absolute z-20 h-auto swiper-button-prev -bottom-24 left-1/2 -translate-x-[calc(50%_+_50px)] lg:bottom-[unset] lg:left-0 lg:top-1/2 lg:-translate-x-1/2 transform lg:-translate-y-1/2"
+        class="absolute z-20 h-auto swiper-button-prev -bottom-[60px] left-1/2 -translate-x-[calc(50%_+_50px)] lg:bottom-[unset] lg:left-0 lg:top-1/2 lg:-translate-x-1/2 transform lg:-translate-y-1/2"
       >
         <SwiperPrev />
       </div>
       <div
-        class="absolute z-20 swiper-button-next -bottom-24 left-1/2 lg:left-[unset] lg:bottom-[unset] -translate-x-[calc(50%_-_50px)] lg:right-0 lg:top-1/2 transform lg:-translate-y-1/2 lg:translate-x-[25.5px]"
+        class="absolute z-20 swiper-button-next -bottom-[60px] left-1/2 lg:left-[unset] lg:bottom-[unset] -translate-x-[calc(50%_-_50px)] lg:right-0 lg:top-1/2 transform lg:-translate-y-1/2 lg:translate-x-[25.5px]"
       >
         <SwiperNext />
       </div>
