@@ -101,6 +101,10 @@
   .swiper-button-lock {
     @apply hidden;
   }
+
+  .js-staggerFromTo > * {
+    opacity: 0;
+  }
 }
 
 @layer utilities {
