@@ -62,11 +62,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="theme-color" content="#ffffff" />
     {
       import.meta.env.LIVE == 1 && (
-        <script
-          src="https://cdn.usefathom.com/script.js"
-          data-site="YIWLFNPK"
-          defer
-        />
+        <>
+          <script
+            src="https://cdn.usefathom.com/script.js"
+            data-site="YIWLFNPK"
+            defer
+          />
+          <script
+            defer
+            data-domain="angelokeirsebilck.be"
+            src="https://plausible.angelokeirsebilck.be/js/script.js"
+          />
+        </>
       )
     }
   </head>
